@@ -1,0 +1,30 @@
+diff -Nru readline-4.0/doc/hist.texinfo readline-4.0.new/doc/hist.texinfo
+--- readline-4.0/doc/hist.texinfo	Thu Dec 31 18:04:50 1998
++++ readline-4.0.new/doc/hist.texinfo	Tue Feb 23 06:06:41 1999
+@@ -9,9 +9,9 @@
+ @include manvers.texinfo
+ 
+ @ifinfo
+-@dircategory Libraries
++@dircategory Libraries:
+ @direntry
+-* History: (history).       The GNU history library API
++* History: (history)			The GNU history library API
+ @end direntry
+ 
+ This document describes the GNU History library, a programming tool that
+diff -Nru readline-4.0/doc/rlman.texinfo readline-4.0.new/doc/rlman.texinfo
+--- readline-4.0/doc/rlman.texinfo	Thu Dec 31 18:05:01 1998
++++ readline-4.0.new/doc/rlman.texinfo	Tue Feb 23 06:07:29 1999
+@@ -9,9 +9,9 @@
+ @include manvers.texinfo
+ 
+ @ifinfo
+-@dircategory Libraries
++@dircategory Libraries:
+ @direntry
+-* Readline: (readline).       The GNU readline library API
++* Readline: (readline)			The GNU readline library API
+ @end direntry
+ 
+ This document describes the GNU Readline Library, a utility which aids
