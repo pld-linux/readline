@@ -13,7 +13,7 @@ Version:	4.3
 Release:	5
 License:	GPL
 Group:		Libraries
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
 Patch1:		%{name}-shared.patch
