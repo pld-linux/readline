@@ -88,15 +88,15 @@ gzip -nf9 $RPM_BUILD_ROOT/usr/{info/*info*,man/man3/*}
 
 %post
 /sbin/ldconfig
-/sbin/install-info /usr/info/history.info.gz /etc/info-dir
-/sbin/install-info /usr/info/readline.info.gz /etc/info-dir
+/sbin/install-info %{_infodir}/history.info.gz /etc/info-dir
+/sbin/install-info %{_infodir}/readline.info.gz /etc/info-dir
 
 %postun -p /sbin/ldconfig
 
 %preun
 if [ "$1" = "0" ]; then
-	/sbin/install-info --delete /usr/info/history.info.gz /etc/info-dir
-	/sbin/install-info --delete /usr/info/readline.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/history.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/readline.info.gz /etc/info-dir
 fi
 
 %clean
@@ -105,13 +105,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /lib/lib*.so.*.*
-/usr/info/*info*
+%{_infodir}/*info*
 
 %files devel
 %defattr(644,root,root,755)
 /usr/include/readline
 /usr/lib/lib*.so
-/usr/man/man3/*
+%{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
@@ -164,7 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 - translations modified for de, fr, tr
 
 * Wed May 06 1998 Cristian Gafton <gafton@redhat.com>
-- don't package /usr/info/dir
+- don't package %{_infodir}/dir
 
 * Thu Apr 30 1998 Cristian Gafton <gafton@redhat.com>
 - devel package moved to Development/Libraries
