@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -14,8 +14,8 @@ Patch0:		readline-shared.patch
 Patch1:		readline-info.patch
 Prereq:		/sbin/install-info
 Requires:	ncurses >= 4.2-12
+Buildprereq:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
-Conflicts:	glibc <= 2.0.7
 
 %description
 The "readline" library will read a line from the terminal and return it,
@@ -118,6 +118,12 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/lib*.a
 
 %changelog
+* Tue Apr 20 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.0-3]
+- removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
+- added Buildprereq: ncurses-devel,
+- recompiles on new rpm.
+
 * Sat Feb 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.0-2]
 - added "Requires: ncurses >= 4.2-12" and "Conflicts: glibc <= 2.0.7"
