@@ -57,9 +57,9 @@ fácil de usar y más intuitiva.
 
 %description -l pl
 Biblioteka "readline" czyta liniê z terminala i zwraca j±, pozwalaj±c
-u¿ytkownikowi edytowaæ j± za pomoc± standardowych klawiszy edycyjnych
-emacsa. Pozwala programi¶cie daæ u¿ytkownikowi ³atwy do u¿ycia i
-bardziej intuicyjny interfejs.
+u¿ytkownikowi modyfikowaæ j± za pomoc± standardowych klawiszy
+edycyjnych emacsa. Pozwala programi¶cie daæ u¿ytkownikowi ³atwy do
+u¿ycia i bardziej intuicyjny interfejs.
 
 %description -l pt_BR
 A biblioteca "readline" lerá uma linha do terminal e irá retorná-la,
