@@ -5,19 +5,20 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.1
-Release:	3
+Release:	6
 License:	GPL
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
-Source1:	readline-sys_inputrc
-Patch0:		readline-shared.patch
-Patch1:		readline-info.patch
-Patch2:		readline-DESTDIR.patch
-Patch3:		readline-sys_inputrc.patch
-Patch4:		readline-terminal.patch
-patch5:		readline-guard.patch
+Source1:	%{name}-sys_inputrc
+Patch0:		%{name}-shared.patch
+Patch1:		%{name}-info.patch
+Patch2:		%{name}-DESTDIR.patch
+Patch3:		%{name}-sys_inputrc.patch
+Patch4:		%{name}-terminal.patch
+patch5:		%{name}-guard.patch
 Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,6 +43,7 @@ Summary(fr):	Fichier pour développer des programmes utilisant la readline
 Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline
 Summary(tr):	readline kitaplýðýný kullanan programlar yazmak için gerekli dosyalar
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -68,6 +70,7 @@ malloc(3).
 Summary:	Static readline library
 Summary(pl):	Biblioteka statyczna readline
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -89,7 +92,6 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 
 %build
 autoconf
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-curses
 
@@ -105,14 +107,10 @@ install -d $RPM_BUILD_ROOT/{etc,lib}
 %{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
-mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
 ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
-
-strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man3/*}
 
 %post
 /sbin/ldconfig
