@@ -5,11 +5,12 @@ Summary(pl): Biblioteki do czytania lini z terminala
 Summary(tr): Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:        readline
 Version:     2.2.1
-Release:     3
+Release:     4
 Copyright:   GPL
 Group:       Libraries
 Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:      readline-shared.patch
+Patch1:      readline-info.patch
 Prereq:      /sbin/install-info
 Buildroot:   /tmp/%{name}-%{version}-root
 
@@ -58,7 +59,8 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch0 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr \
 	--with-curses
 
@@ -70,25 +72,25 @@ install -d $RPM_BUILD_ROOT/lib
 
 make install install-shared prefix=$RPM_BUILD_ROOT/usr
 
-strip $RPM_BUILD_ROOT/usr/lib/lib*.so.*.*
-
-gzip -nf9 $RPM_BUILD_ROOT/usr/info/*info*
-
 mv $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib 
 ln -sf ../../lib/libreadline.so.3.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
 ln -sf ../../lib/libhistory.so.3.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
 
+strip $RPM_BUILD_ROOT/lib/lib*.so.*.*
+
+gzip -nf9 $RPM_BUILD_ROOT/usr/{info/*info*,man/man3/*}
+
 %post
 /sbin/ldconfig
-/sbin/install-info /usr/info/history.info.gz /usr/info/dir --entry="* history: (readline).                   The GNU history (from readline)."
-/sbin/install-info /usr/info/readline.info.gz /usr/info/dir --entry="* readline: (readline).                   The GNU readline."
+/sbin/install-info /usr/info/history.info.gz /etc/info-dir
+/sbin/install-info /usr/info/readline.info.gz /etc/info-dir
 
 %postun -p /sbin/ldconfig
 
 %preun
 if [ $1 = 0 ]; then
-   /sbin/install-info --delete /usr/info/history.info.gz /usr/info/dir --entry="* history: (history).                   The GNU history (from readline)."
-   /sbin/install-info --delete /usr/info/readline.info.gz /usr/info/dir --entry=" * readline: (readline).                   The GNU readline."
+	/sbin/install-info --delete /usr/info/history.info.gz /etc/info-dir
+	/sbin/install-info --delete /usr/info/readline.info.gz /etc/info-dir
 fi
 
 %clean
@@ -108,6 +110,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/lib/lib*.a
 
 %changelog
+* Sat Jan 02 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2.1-4]
+- standarized {un}registering info pages (added readline-info.patch),
+- added LDFLAGS="-s" to ./configure enviroment, 
+- added gzipping man pages.
+
 * Tue Oct  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2.1-3]
 - shared libs moved to /lib (neccesary for bash).
@@ -117,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 - added -q %setup parameter,
 - libreadline linked with ncurses,
 - added stripping shared library,
-- changed way passing $RPM_OPT_)FLAGS (as configure enviroment variable),
+- changed way passing $RPM_OPT_FLAGS (as configure enviroment variable),
 - addes static subpackage.
 
 * Sun Aug 02 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
