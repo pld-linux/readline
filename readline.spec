@@ -5,10 +5,11 @@ Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.2
-Release:	6
+Release:	7
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -20,6 +21,7 @@ Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-guard.patch
 Patch6:		%{name}-header.patch
+Patch7:		%{name}-ac250.patch
 Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
@@ -87,7 +89,7 @@ Requires:	%{name}-devel = %{version}
 This package contains static version of readline library.
 
 %description static -l pl
-Pakiet ten zawiera wersjê statycznê biblioteki readline.
+Pakiet ten zawiera wersjê statyczn± biblioteki readline.
 
 %prep
 %setup  -q
@@ -98,6 +100,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 autoconf
@@ -118,8 +121,8 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-ln_s -f ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln_s -f ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %post
 /sbin/ldconfig

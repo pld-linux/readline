@@ -1,0 +1,16 @@
+--- readline-4.2.orig/configure.in	Mon Apr  2 21:55:12 2001
++++ readline-4.2/configure.in	Sat Aug  4 13:21:09 2001
+@@ -5,11 +5,11 @@
+ dnl
+ dnl Process this file with autoconf to produce a configure script.
+ AC_REVISION([for Readline 4.2, version 2.26, from autoconf version] AC_ACVERSION)
+-LIBVERSION=4.2
+-
+ AC_INIT(readline.h)
+ AC_CONFIG_HEADER(config.h)
+ 
++LIBVERSION=4.2
++
+ dnl make sure we are using a recent autoconf version
+ AC_PREREQ(2.10)
+ 
