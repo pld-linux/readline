@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -18,7 +18,8 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-DESTDIR.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
-patch5:		%{name}-guard.patch
+Patch5:		%{name}-guard.patch
+Patch6:		%{name}-resize.patch
 Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -87,8 +88,9 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1 -b .wiget
+%patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 autoconf
