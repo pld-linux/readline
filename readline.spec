@@ -9,7 +9,7 @@ Release:     3
 Copyright:   GPL
 Group:       Libraries
 Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      readline-2.2.1-shared.patch
+Patch0:      readline-shared.patch
 Prereq:      /sbin/install-info
 Buildroot:   /tmp/%{name}-%{version}-root
 
@@ -59,7 +59,9 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" ./configure \
-	--prefix=/usr
+	--prefix=/usr \
+	--with-curses
+
 make static shared
 
 %install
@@ -113,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Aug  10 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2.1-2]
 - added -q %setup parameter,
-- rlibreadline linked with libslang,
+- libreadline linked with ncurses,
 - added striping shared library,
 - changed way passing $RPM_OPT_)FLAGS (as configure enviroment variable),
 - addes static subpackage.
