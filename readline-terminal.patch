@@ -1,15 +1,6 @@
 diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
 --- readline-4.0/terminal.c	Tue Feb  2 19:26:20 1999
 +++ readline-4.0.new/terminal.c	Tue Jun 29 08:11:05 1999
-@@ -74,7 +74,7 @@
- extern void _rl_bind_if_unbound ();
- 
- /* Functions imported from shell.c */
--extern void set_lines_and_columns ();
-+extern void rl_set_lines_and_columns ();
- extern char *get_env_value ();
- 
- /* **************************************************************** */
 @@ -138,7 +138,10 @@
  static char *term_ks, *term_ke;
  
@@ -22,15 +13,6 @@ diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
  
  /* Variables that hold the screen dimensions, used by the display code. */
  int screenwidth, screenheight, screenchars;
-@@ -211,7 +214,7 @@
-   /* If we're being compiled as part of bash, set the environment
-      variables $LINES and $COLUMNS to new values.  Otherwise, just
-      do a pair of putenv () or setenv () calls. */
--  set_lines_and_columns (screenheight, screenwidth);
-+  rl_set_lines_and_columns (screenheight, screenwidth);
- 
-   if (!_rl_term_autowrap)
-     screenwidth--;
 @@ -252,7 +255,8 @@
    "im", &term_im,
    "kd", &term_kd,
