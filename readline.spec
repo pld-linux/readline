@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	3
+Release:	4
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -23,12 +23,13 @@ allowing the user to edit the line with the standard emacs editing keys.
 It allows the programmer to give the user an easier-to-use and more
 intuitive interface.
 
-%package devel
+%package	devel
 Summary:	file for developing programs that use the readline library
 Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
-Summary(fr):	Fichier pour développer des programmes utilisant la librairie readline.
-Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline'a
-Summary(tr):	readline kitaplýðýný kullanan programlar yazmak için gerekli dosyalar
+Summary(fr):	Fichier pour développer des programmes utilisant la readline
+Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline
+Summary(tr):	readline kitaplýðýný kullanan programlar yazmak için gerekli \
+Summary(tr):	dosyalar
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -46,7 +47,7 @@ Biblioteka readline czyta linie z terminala i zwracaj± j±, u¿ywaj±c znaku
 zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie jest
 wówczas wynikiowy.  Linia zwracana jest allokowana przez malloc(3).
 
-%package static
+%package	static
 Summary:	Static readline library
 Summary(pl):	Biblioteka statyczna readline
 Group:		Development/Libraries
@@ -66,9 +67,10 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+    ./configure \
 	--prefix=/usr \
-	--with-curses
+	--with-curses \
+	--infodir=%{_infodir} %{_target_platform}
 
 make static shared
 
@@ -76,15 +78,20 @@ make static shared
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib
 
-make install install-shared prefix=$RPM_BUILD_ROOT/usr
+make install install-shared \
+    prefix=$RPM_BUILD_ROOT%{_prefix} \
+    mandir=$RPM_BUILD_ROOT%{_mandir} \
+    infodir=$RPM_BUILD_ROOT%{_infodir}
 
 mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib 
+chmod 755 $RPM_BUILD_ROOT/lib/*.so.* 
+
 ln -sf ../../lib/libreadline.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
-strip $RPM_BUILD_ROOT/lib/lib*.so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
-gzip -nf9 $RPM_BUILD_ROOT/usr/{info/*info*,man/man3/*}
+gzip -nf9 $RPM_BUILD_ROOT%{_datadir}/{info/*info*,man/man3/*}
 
 %post
 /sbin/ldconfig
@@ -104,13 +111,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+
 %attr(755,root,root) /lib/lib*.so.*.*
 %{_infodir}/*info*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/readline
-%{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man3/*
 
 %files static
@@ -118,11 +126,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.a
 
 %changelog
+
 * Tue Apr 20 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.0-3]
 - removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
 - added Buildprereq: ncurses-devel,
 - recompiles on new rpm.
+
+* Sun Mar 14 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+  [4.0-4]
+- added %deffattr(644,root,root,755) in main subpackage,
+- fixed permission of /usr/lib/lib*.so.
 
 * Sat Feb 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.0-2]
@@ -153,33 +167,12 @@ rm -rf $RPM_BUILD_ROOT
   [2.2.1-2]
 - updated to readline-2.2.1,
 - added pl translation,
+- build against GNU libc-2.1.
 
 * Mon Jun  8 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
 - replaced linking with libtermcap instead libslang,
 - man3 pages moved to devel,
 - added -q %setup parameter,
 - added stripig shared libs,
-- added %[def]attr macros in %files.
-* Wed May 06 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Wed May 06 1998 Cristian Gafton <gafton@redhat.com>
-- don't package %{_infodir}/dir
-
-* Thu Apr 30 1998 Cristian Gafton <gafton@redhat.com>
-- devel package moved to Development/Libraries
-
-* Tue Apr 21 1998 Cristian Gafton <gafton@redhat.com>
-- updated to 2.2
-
-* Tue Oct 14 1997 Donnie Barnes <djb@redhat.com>
-- spec file cleanups
-
-* Fri Oct 10 1997 Erik Troan <ewt@redhat.com>
-- added proper sonames
-
-* Tue Jul 08 1997 Erik Troan <ewt@redhat.com>
-- updated to readline 2.1
-
-* Tue Jun 03 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+- added %[def]attr macros in %files,
+- start at RH spec file.
