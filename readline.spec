@@ -116,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
   [2.2.1-2]
 - added -q %setup parameter,
 - libreadline linked with ncurses,
-- added striping shared library,
+- added stripping shared library,
 - changed way passing $RPM_OPT_)FLAGS (as configure enviroment variable),
 - addes static subpackage.
 
