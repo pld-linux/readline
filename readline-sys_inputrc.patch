@@ -1,0 +1,64 @@
+diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
+--- readline-4.0/bind.c	Tue Feb  2 19:26:20 1999
++++ readline-4.0.new/bind.c	Tue Jun 29 08:11:05 1999
+@@ -698,7 +698,7 @@
+    to the first non-null filename from this list:
+      1. the filename used for the previous call
+      2. the value of the shell variable `INPUTRC'
+-     3. ~/.inputrc
++     3. /etc/inputrc and ~/.inputrc
+    If the file existed and could be opened and read, 0 is returned,
+    otherwise errno is returned. */
+ int
+@@ -709,14 +709,23 @@
+   if (filename == 0)
+     {
+       filename = last_readline_init_file;
+-      if (filename == 0)
++      if (filename == 0) {
+         filename = get_env_value ("INPUTRC");
+-      if (filename == 0)
+-	filename = DEFAULT_INPUTRC;
++	read_system_init_file = 0;
++      }
++      if (filename == 0) {
++ 	filename = DEFAULT_INPUTRC;
++	read_system_init_file = 1;
++      }
+     }
+ 
+-  if (*filename == 0)
++  if (*filename == 0) {
+     filename = DEFAULT_INPUTRC;
++    read_system_init_file = 1;
++  }
++
++  if (read_system_init_file)
++    _rl_read_init_file (SYSTEM_INPUTRC, 0);
+ 
+   return (_rl_read_init_file (filename, 0));
+ }
+diff -Nru readline-4.0/doc/rluser.texinfo readline-4.0.new/doc/rluser.texinfo
+--- readline-4.0/doc/rluser.texinfo	Thu Dec 31 18:34:48 1998
++++ readline-4.0.new/doc/rluser.texinfo	Tue Jun 29 08:13:48 1999
+@@ -288,7 +288,8 @@
+ @ifclear BashFeatures
+ file is taken from the value of the environment variable @code{INPUTRC}.  If
+ @end ifclear
+-that variable is unset, the default is @file{~/.inputrc}.
++that variable is unset, Readline will read both @file{/etc/inputrc} and 
++@file{~/.inputrc}.
+ 
+ When a program which uses the Readline library starts up, the
+ init file is read, and the key bindings are set.
+diff -Nru readline-4.0/rlconf.h readline-4.0.new/rlconf.h
+--- readline-4.0/rlconf.h	Fri May 15 15:59:23 1998
++++ readline-4.0.new/rlconf.h	Tue Jun 29 08:04:25 1999
+@@ -43,6 +43,7 @@
+ 
+ /* The final, last-ditch effort file name for an init file. */
+ #define DEFAULT_INPUTRC "~/.inputrc"
++#define SYSTEM_INPUTRC "/etc/inputrc"
+ 
+ /* If defined, expand tabs to spaces. */
+ #define DISPLAY_TABS
