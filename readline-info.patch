@@ -9,7 +9,7 @@ diff -Nru readline-4.0/doc/hist.texinfo readline-4.0.new/doc/hist.texinfo
 +@dircategory Libraries:
  @direntry
 -* History: (history).       The GNU history library API
-+* History: (history)			The GNU history library API
++* History: (history).			The GNU history library API
  @end direntry
  
  This document describes the GNU History library, a programming tool that
@@ -24,7 +24,7 @@ diff -Nru readline-4.0/doc/rlman.texinfo readline-4.0.new/doc/rlman.texinfo
 +@dircategory Libraries:
  @direntry
 -* Readline: (readline).       The GNU readline library API
-+* Readline: (readline)			The GNU readline library API
++* Readline: (readline).			The GNU readline library API
  @end direntry
  
  This document describes the GNU Readline Library, a utility which aids
