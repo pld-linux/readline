@@ -5,13 +5,14 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	5
+Release:	6
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
 Source:		ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:		readline-shared.patch
 Patch1:		readline-info.patch
+Patch2:		readline-DESTDIR.patch
 Prereq:		/sbin/install-info
 Requires:	ncurses >= 4.2-12
 Buildprereq:	ncurses-devel
@@ -64,14 +65,13 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 autoconf
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--prefix=%{_prefix} \
-	--with-curses \
-	%{_target_platform}
+LDFLAGS="-s"; export LDFLAGS
+%configure \
+	--with-curses
 
 make static shared
 
@@ -80,15 +80,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib
 
 make install install-shared \
-    prefix=$RPM_BUILD_ROOT%{_prefix} \
-    mandir=$RPM_BUILD_ROOT%{_mandir} \
-    infodir=$RPM_BUILD_ROOT%{_infodir}
+    DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib 
 chmod 755 $RPM_BUILD_ROOT/lib/*.so.* 
 
-ln -sf ../../lib/libreadline.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
