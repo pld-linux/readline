@@ -1,6 +1,16 @@
 diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
 --- readline-4.0/bind.c	Tue Feb  2 19:26:20 1999
 +++ readline-4.0.new/bind.c	Tue Jun 29 08:11:05 1999
+@@ -624,6 +624,9 @@
+ /* The last key bindings file read. */
+ static char *last_readline_init_file = (char *)NULL;
+ 
++/* Flag to read system init file */
++static int read_system_init_file = 0;
++
+ /* The file we're currently reading key bindings from. */
+ static char *current_readline_init_file;
+ static int current_readline_init_include_level;
 @@ -698,7 +698,7 @@
     to the first non-null filename from this list:
       1. the filename used for the previous call
