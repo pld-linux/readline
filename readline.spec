@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ŞÉÔÁÎÎÑ ÓÔÒ¦ŞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	5.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
@@ -23,6 +23,7 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
+Patch6:		%{name}-lfs.patch
 Patch11:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-001
 Patch12:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-002
 Patch13:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-003
@@ -192,6 +193,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p0
 %patch11 -p0
 %patch12 -p0
 %patch13 -p0
