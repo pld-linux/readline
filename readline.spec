@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
 Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
 Version:	4.3
-Release:	10
+Release:	11
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -99,8 +99,8 @@ Summary(ru):	Файлы, необходимые для разработки программ, использующих библиотеку
 Summary(tr):	readline kitaplЩПЩnЩ kullanan programlar yazmak iГin gerekli dosyalar
 Summary(uk):	Файли, необх╕дн╕ для розробки програм, що використовують б╕бл╕отеку readline
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	ncurses-devel
+Requires:	%{name} = %{version}-%{release}
+Requires:	ncurses-devel >= 5.0
 
 %description devel
 The "readline" library will read a line from the terminal and return
@@ -166,7 +166,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a readline
 Summary(ru):	Статические библиотеки readline
 Summary(uk):	Статичн╕ б╕бл╕отеки readline
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of readline library.
@@ -215,9 +215,11 @@ rm -f doc/*.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,%{_lib}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},/%{_lib}}
 
-%{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
+%{__make} install install-shared \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*old
@@ -226,6 +228,9 @@ mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
 ln -sf /%{_lib}/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf /%{_lib}/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+
+# help rpmdeps
+chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
