@@ -60,7 +60,7 @@ This package contains sattic version readline library.
 Pakiet ten zawiera wersjê statycznê biblioteki readline.
 
 %prep
-%setup -q
+%setup  -q
 %patch0 -p1
 %patch1 -p1
 
@@ -103,17 +103,19 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(755, root, root) /lib/lib*.so.*.*
-%attr(644, root, root) /usr/info/*info*
+%defattr(644,root,root,755)
+%attr(755,root,root) /lib/lib*.so.*.*
+/usr/info/*info*
 
 %files devel
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 /usr/include/readline
 /usr/lib/lib*.so
 /usr/man/man3/*
 
 %files static
-%attr(644, root, root) /usr/lib/lib*.a
+%defattr(644,root,root,755)
+/usr/lib/lib*.a
 
 %changelog
 * Sat Feb 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
