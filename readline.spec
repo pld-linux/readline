@@ -19,8 +19,10 @@ Patch2:		%{name}-DESTDIR.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-guard.patch
+Patch6:		%{name}-header.patch
 Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,6 +91,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 autoconf
