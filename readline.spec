@@ -18,7 +18,6 @@ Patch3:		readline-sys_inputrc.patch
 Patch4:		readline-terminal.patch
 patch5:		readline-guard.patch
 Prereq:		/sbin/ldconfig
-Prereq:		/usr/sbin/fix-info-dir
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -112,11 +111,11 @@ gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man3/*}
 
 %post
 /sbin/ldconfig
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 /sbin/ldconfig
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
