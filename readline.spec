@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-/usr/include/readline
+%{_includedir}/readline
 %{_libdir}/lib*.so
 %{_mandir}/man3/*
 
