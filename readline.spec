@@ -78,9 +78,9 @@ install -d $RPM_BUILD_ROOT/lib
 
 make install install-shared prefix=$RPM_BUILD_ROOT/usr
 
-mv $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib 
-ln -sf ../../lib/libreadline.so.4.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
-ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
+mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib 
+ln -sf ../../lib/libreadline.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 strip $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
@@ -110,12 +110,12 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 /usr/include/readline
-/usr/lib/lib*.so
+%{_libdir}/lib*.so
 %{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
-/usr/lib/lib*.a
+%{_libdir}/lib*.a
 
 %changelog
 * Tue Apr 20 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
