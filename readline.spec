@@ -18,7 +18,7 @@ Patch3:		readline-sys_inputrc.patch
 Patch4:		readline-terminal.patch
 Prereq:		/sbin/install-info
 Requires:	ncurses >= 4.2-12
-Buildprereq:	ncurses-devel
+BuildRequires:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
