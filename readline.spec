@@ -68,7 +68,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
     ./configure \
-	--prefix=%{_target} \
+	--prefix=%{_prefix} \
 	--with-curses \
 	--infodir=%{_infodir} %{_target_platform}
 
