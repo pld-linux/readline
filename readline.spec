@@ -250,7 +250,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/readline
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libhistory.so
+%attr(755,root,root) %{_libdir}/libreadline.so
 %{_mandir}/man3/*
 
 %files static
