@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
 Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
 Version:	5.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
