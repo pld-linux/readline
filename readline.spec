@@ -12,6 +12,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	âÉÂÌÉÏÔÅËÉ
+Group(uk):	â¦ÂÌ¦ÏÔÅËÉ
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
@@ -54,6 +57,7 @@ Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline
 Summary(tr):	readline kitaplığını kullanan programlar yazmak için gerekli dosyalar
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -81,6 +85,7 @@ Summary:	Static readline library
 Summary(pl):	Biblioteka statyczna readline
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
