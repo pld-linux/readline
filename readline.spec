@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	5.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
@@ -23,6 +23,11 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
+Patch11:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-001
+Patch12:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-002
+Patch13:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-003
+Patch14:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-004
+Patch15:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-005
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -187,6 +192,11 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch11 -p0
+%patch12 -p0
+%patch13 -p0
+%patch14 -p0
+%patch15 -p0
 
 %build
 cp -f /usr/share/automake/config.sub support
