@@ -214,17 +214,17 @@ rm -f doc/*.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,lib}
+install -d $RPM_BUILD_ROOT/{etc,%{_lib}}
 
 %{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /lib/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -240,7 +240,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/inputrc
-%attr(755,root,root) /lib/lib*.so.*.*
+%attr(755,root,root) /%{_lib}/lib*.so.*.*
 %{_infodir}/*info*
 
 %files devel
