@@ -1,12 +1,11 @@
-%define		mainversion	4.2
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
-Version:	%{mainversion}a
-Release:	1
+Version:	4.2a
+Release:	2
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -25,6 +24,8 @@ Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		sonemversion	4.2
 
 %description
 The "readline" library will read a line from the terminal and return
@@ -118,8 +119,10 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-ln -sf ../../lib/libreadline.so.%{mainversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf ../../lib/libhistory.so.%{mainversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf ../../lib/libreadline.so.%{sonemversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf ../../lib/libhistory.so.%{sonemversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
 %post
 /sbin/ldconfig
