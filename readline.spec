@@ -4,8 +4,8 @@ Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
-Version:	4.2
-Release:	7
+Version:	4.2a
+Release:	1
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -16,12 +16,10 @@ Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
-Patch2:		%{name}-DESTDIR.patch
-Patch3:		%{name}-sys_inputrc.patch
-Patch4:		%{name}-terminal.patch
-Patch5:		%{name}-guard.patch
-Patch6:		%{name}-header.patch
-Patch7:		%{name}-ac250.patch
+Patch2:		%{name}-sys_inputrc.patch
+Patch3:		%{name}-terminal.patch
+Patch4:		%{name}-guard.patch
+Patch5:		%{name}-header.patch
 Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
@@ -99,8 +97,6 @@ Pakiet ten zawiera wersjê statyczn± biblioteki readline.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
-%patch7 -p1
 
 %build
 autoconf
