@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.2a
-Release:	3
+Release:	4
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -25,7 +25,7 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		sonemversion	4.2
+%define		sonameversion	4.2
 
 %description
 The "readline" library will read a line from the terminal and return
