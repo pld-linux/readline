@@ -10,7 +10,7 @@ Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	4.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -25,7 +25,7 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		sonameversion	4.2
+%define		sonameversion	4.3
 
 %description
 The "readline" library will read a line from the terminal and return
