@@ -23,19 +23,12 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
-#Patch6:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
-#Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
-#Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-003
-#Patch9:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-004
-#Patch10:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-005
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		sonameversion	4.3
 
 %description
 The "readline" library will read a line from the terminal and return
@@ -221,10 +214,10 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /%{_lib}/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /%{_lib}/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
-# help rpmdeps
+# help rpm to find deps
 chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
 
 %clean
