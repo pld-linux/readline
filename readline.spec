@@ -1,11 +1,11 @@
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
-Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal.
+Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -16,9 +16,9 @@ Patch1:		readline-info.patch
 Patch2:		readline-DESTDIR.patch
 Patch3:		readline-sys_inputrc.patch
 Patch4:		readline-terminal.patch
+patch5:		readline-guard.patch
 Prereq:		/sbin/ldconfig
 Prereq:		/usr/sbin/fix-info-dir
-Requires:	ncurses >= 5.0
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -81,6 +81,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 autoconf
