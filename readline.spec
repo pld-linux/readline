@@ -91,16 +91,16 @@ LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-curses
 
-make static shared
+%{__make} static shared
 
 rm -f doc/*.info
-make -C doc info
+%{__make} -C doc info
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,lib}
 
-make install install-shared DESTDIR=$RPM_BUILD_ROOT
+%{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
