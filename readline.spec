@@ -23,16 +23,17 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The "readline" library will read a line from the terminal and return it,
-allowing the user to edit the line with the standard emacs editing keys. It
-allows the programmer to give the user an easier-to-use and more intuitive
-interface.
+The "readline" library will read a line from the terminal and return
+it, allowing the user to edit the line with the standard emacs editing
+keys. It allows the programmer to give the user an easier-to-use and
+more intuitive interface.
 
 %description -l de
-Die "readline"-Library liest eine Zeile von einem Terminal ein, und gibt
-sie zurück, so daß ein User die Zeile mit den normalen emacs-Editiertasten
-ändern kann. Sie erlaubt einem Programmierer, dem User ein einfacher zu
-benutzendes und intuitiveres Interface zu schreiben.
+Die "readline"-Library liest eine Zeile von einem Terminal ein, und
+gibt sie zurück, so daß ein User die Zeile mit den normalen
+emacs-Editiertasten ändern kann. Sie erlaubt einem Programmierer, dem
+User ein einfacher zu benutzendes und intuitiveres Interface zu
+schreiben.
 
 %package devel
 Summary:	file for developing programs that use the readline library
@@ -46,21 +47,22 @@ Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-The "readline" library will read a line from the terminal and return it,
-using prompt as a prompt. If prompt is null, no prompt is issued. The line
-returned is allocated with malloc(3), so the caller must free it when
-finished. The line returned has the final newline removed, so only the text
-of the line remains.
+The "readline" library will read a line from the terminal and return
+it, using prompt as a prompt. If prompt is null, no prompt is issued.
+The line returned is allocated with malloc(3), so the caller must free
+it when finished. The line returned has the final newline removed, so
+only the text of the line remains.
 
 %description -l de devel
 Die "readline"-Library liest eine Zeile vom Terminal ein und gibt sie
-zurück. Die zurückgegebene Zeile hat kein newline am Ende, so daß nur der
-Text der Zeile bleibt.
+zurück. Die zurückgegebene Zeile hat kein newline am Ende, so daß nur
+der Text der Zeile bleibt.
 
 %description -l pl devel
-Biblioteka readline czyta linie z terminala i zwracaj± j±, u¿ywaj±c znaku
-zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie jest
-wówczas wynikiowy. Linia zwracana jest allokowana przez malloc(3).
+Biblioteka readline czyta linie z terminala i zwracaj± j±, u¿ywaj±c
+znaku zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie
+jest wówczas wynikiowy. Linia zwracana jest allokowana przez
+malloc(3).
 
 %package static
 Summary:	Static readline library
