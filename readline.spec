@@ -20,7 +20,7 @@ Prereq:		/sbin/ldconfig
 Prereq:		/usr/sbin/fix-info-dir
 Requires:	ncurses >= 5.0
 BuildRequires:	ncurses-devel >= 5.0
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The "readline" library will read a line from the terminal and return it,
