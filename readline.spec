@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	4
+Release:	5
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -66,11 +66,12 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch1 -p1
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-    ./configure \
+./configure \
 	--prefix=%{_prefix} \
 	--with-curses \
-	--infodir=%{_infodir} %{_target_platform}
+	%{_target_platform}
 
 make static shared
 
@@ -91,7 +92,7 @@ ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
-gzip -nf9 $RPM_BUILD_ROOT%{_datadir}/{info/*info*,man/man3/*}
+gzip -nf9 $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man3/*}
 
 %post
 /sbin/ldconfig
@@ -126,53 +127,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.a
 
 %changelog
-
-* Tue Apr 20 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.0-4]
-- removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
-- added Buildprereq: ncurses-devel,
-- recompiles on new rpm.
-
-* Sun Mar 14 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [4.0-3]
-- added %deffattr(644,root,root,755) in main subpackage,
-- fixed permission of /usr/lib/lib*.so.
-
-* Sat Feb 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.0-2]
-- added "Requires: ncurses >= 4.2-12" and "Conflicts: glibc <= 2.0.7"
-  for prevent installing readline with proper versions glibc a ncurses.
-
-* Mon Feb 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.0-1]
-- removed man group from man pages,
-- standarized {un}registering info pages (added readline-info.patch),
-- added LDFLAGS="-s" to ./configure enviroment, 
-- added Group(pl),
-- added gzipping man pages.
-
-* Tue Oct  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2.1-3]
-- shared libs moved to /lib (neccesary for bash).
-
-* Mon Aug  10 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2.1-2]
-- added -q %setup parameter,
-- libreadline linked with ncurses,
-- added stripping shared library,
-- changed way passing $RPM_OPT_FLAGS (as configure enviroment variable),
-- addes static subpackage.
-
-* Sun Aug 02 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [2.2.1-2]
-- updated to readline-2.2.1,
-- added pl translation,
-- build against GNU libc-2.1.
-
-* Mon Jun  8 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-- replaced linking with libtermcap instead libslang,
-- man3 pages moved to devel,
-- added -q %setup parameter,
-- added stripig shared libs,
-- added %[def]attr macros in %files,
-- start at RH spec file.
+* Fri May 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.0-5]
+- based on RH spec,
+- pl translation by Wojtek ¦lusarczyk <wojtek@shadow.eu.org>,
+- spec rewrited by me and Wojtek ¦lusarczyk <wojtek@shadow.eu.org>.
