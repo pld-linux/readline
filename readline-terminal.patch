@@ -1,45 +1,35 @@
-diff -urN readline-4.2.org/terminal.c readline-4.2/terminal.c
---- readline-4.2.org/terminal.c	Wed Apr 11 19:45:39 2001
-+++ readline-4.2/terminal.c	Wed Apr 11 19:51:14 2001
-@@ -138,7 +138,10 @@
- 
+--- readline-4.3/terminal.c.orig	Mon Mar  4 18:23:09 2002
++++ readline-4.3/terminal.c	Sun Jul 28 16:09:59 2002
+@@ -143,8 +143,12 @@
  /* The key sequences sent by the Home and End keys, if any. */
  static char *_rl_term_kh;
--static char *_rl_term_kH;
+ static char *_rl_term_kH;
 +static char *_rl_term_kend;
-+
+ static char *_rl_term_at7;	/* @7 */
+ 
 +/* The key sequence sent by the Delete key, if any. */
 +static char *_rl_term_kD;
++
+ /* Insert key */
+ static char *_rl_term_kI;
  
- /* Variables that hold the screen dimensions, used by the display code. */
- int _rl_screenwidth, _rl_screenheight, _rl_screenchars;
-@@ -297,7 +300,8 @@
+@@ -313,7 +317,8 @@
+   { "ei", &_rl_term_ei },
+   { "ic", &_rl_term_ic },
    { "im", &_rl_term_im },
-   { "kd", &_rl_term_kd },
-   { "kh", &_rl_term_kh },	/* home */
--  { "kH", &_rl_term_kH },	/* end */
+-  { "kH", &_rl_term_kH },	/* home down ?? */
 +  { "@7", &_rl_term_kend },	/* end */
 +  { "kD", &_rl_term_kD },	/* delete */
-   { "kl", &_rl_term_kl },
-   { "kr", &_rl_term_kr },
-   { "ku", &_rl_term_ku },
-@@ -453,7 +457,8 @@
+   { "kI", &_rl_term_kI },	/* insert */
+   { "kd", &_rl_term_kd },
+   { "ke", &_rl_term_ke },	/* end keypad mode */
+@@ -495,7 +500,8 @@
    _rl_bind_if_unbound (_rl_term_kl, rl_backward);
  
    _rl_bind_if_unbound (_rl_term_kh, rl_beg_of_line);	/* Home */
--  _rl_bind_if_unbound (_rl_term_kH, rl_end_of_line);	/* End */
+-  _rl_bind_if_unbound (_rl_term_at7, rl_end_of_line);	/* End */
 +  _rl_bind_if_unbound (_rl_term_kend, rl_end_of_line);	/* End */
-+  _rl_bind_if_unbound (_rl_term_kD, rl_delete);			/* Delete */       
- 
- #if defined (VI_MODE)
-   _rl_keymap = vi_movement_keymap;
-@@ -463,7 +468,8 @@
-   _rl_bind_if_unbound (_rl_term_kl, rl_backward);
- 
-   _rl_bind_if_unbound (_rl_term_kh, rl_beg_of_line);	/* Home */
--  _rl_bind_if_unbound (_rl_term_kH, rl_end_of_line);	/* End */
-+  _rl_bind_if_unbound (_rl_term_kend, rl_end_of_line);	/* End */
-+  _rl_bind_if_unbound (_rl_term_kD, rl_delete);			/* Delete */       
- #endif /* VI_MODE */
++  _rl_bind_if_unbound (_rl_term_kD, rl_delete);		/* Delete */       
  
    _rl_keymap = xkeymap;
+ }

@@ -1,20 +1,16 @@
---- readline-4.2a/aclocal.m4.orig	Wed Nov  7 16:59:37 2001
-+++ readline-4.2a/aclocal.m4	Tue Nov 20 21:12:02 2001
-@@ -921,11 +921,12 @@
+--- readline-4.3/aclocal.m4~	Sun Jul 28 16:03:06 2002
++++ readline-4.3/aclocal.m4	Sun Jul 28 16:03:06 2002
+@@ -981,8 +981,8 @@
  _bash_needmsg=
  fi
  AC_CACHE_VAL(bash_cv_termcap_lib,
 -[AC_CHECK_LIB(termcap, tgetent, bash_cv_termcap_lib=libtermcap,
+-    [AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcap_lib=libtinfo,
 +[AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcap_lib=libtinfo,
 +    [AC_CHECK_LIB(termcap, tgetent, bash_cv_termcap_lib=libtermcap,
-     [AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcal_lib=libtinfo,
          [AC_CHECK_LIB(curses, tgetent, bash_cv_termcap_lib=libcurses,
  	    [AC_CHECK_LIB(ncurses, tgetent, bash_cv_termcap_lib=libncurses,
--	        bash_cv_termcap_lib=gnutermcap)])])])])
-+	        bash_cv_termcap_lib=gnutermcap)])])])])])
- if test "X$_bash_needmsg" = "Xyes"; then
- AC_MSG_CHECKING(which library has the termcap functions)
- fi
+ 	        bash_cv_termcap_lib=gnutermcap)])])])])
 @@ -939,6 +940,9 @@
  TERMCAP_DEP=
  elif test $bash_cv_termcap_lib = libtinfo; then
