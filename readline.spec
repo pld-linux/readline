@@ -22,6 +22,9 @@ Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		%{name}-segv.patch
+# not applied yet - to review (probably the first will replace patch6)
+Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
+Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
