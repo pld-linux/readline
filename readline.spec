@@ -185,7 +185,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch5 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure \
 	--with-curses
 
