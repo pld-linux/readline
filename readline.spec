@@ -8,13 +8,6 @@ Version:	4.2a
 Release:	4
 License:	GPL
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
@@ -55,13 +48,6 @@ Summary(fr):	Fichier pour dИvelopper des programmes utilisant la readline
 Summary(pl):	Pakiet dla programistСw u©ywaj╠cych bibliotek readline
 Summary(tr):	readline kitaplЩПЩnЩ kullanan programlar yazmak iГin gerekli dosyalar
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	ncurses-devel
 
@@ -86,13 +72,6 @@ jest wy╤wietlany. Linia zwracana jest allokowana przez malloc(3).
 Summary:	Static readline library
 Summary(pl):	Biblioteka statyczna readline
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
