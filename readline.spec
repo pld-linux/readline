@@ -4,12 +4,12 @@ Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal.
 Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
-Version:	4.0
-Release:	12
+Version:	4.1
+Release:	1
 License:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	readline-sys_inputrc
 Patch0:		readline-shared.patch
 Patch1:		readline-info.patch
@@ -91,7 +91,7 @@ LDFLAGS="-s"; export LDFLAGS
 make static shared
 
 rm -f doc/*.info
-make -C doc history.info readline.info
+make -C doc info
 
 %install
 rm -rf $RPM_BUILD_ROOT
