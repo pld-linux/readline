@@ -5,8 +5,8 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	11
-Copyright:	GPL
+Release:	12
+License:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
@@ -24,13 +24,13 @@ Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 The "readline" library will read a line from the terminal and return it,
-allowing the user to edit the line with the standard emacs editing keys.
-It allows the programmer to give the user an easier-to-use and more
-intuitive interface.
+allowing the user to edit the line with the standard emacs editing keys. It
+allows the programmer to give the user an easier-to-use and more intuitive
+interface.
 
 %description -l de
-Die "readline"-Library liest eine Zeile von einem Terminal ein, und gibt sie
-zurück, so daß ein User die Zeile mit den normalen emacs-Editiertasten
+Die "readline"-Library liest eine Zeile von einem Terminal ein, und gibt
+sie zurück, so daß ein User die Zeile mit den normalen emacs-Editiertasten
 ändern kann. Sie erlaubt einem Programmierer, dem User ein einfacher zu
 benutzendes und intuitiveres Interface zu schreiben.
 
@@ -90,6 +90,9 @@ LDFLAGS="-s"; export LDFLAGS
 
 make static shared
 
+rm -f doc/*.info
+make -C doc history.info readline.info
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,lib}
@@ -97,14 +100,14 @@ install -d $RPM_BUILD_ROOT/{etc,lib}
 make install install-shared DESTDIR=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/inputrc
 
-mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib 
+mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
 ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
-gzip -nf9 $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man3/*}
+gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man3/*}
 
 %post
 /sbin/ldconfig
