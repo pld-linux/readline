@@ -1,0 +1,11 @@
+--- readline-4.3/readline.c.orig	Wed Mar 13 23:10:46 2002
++++ readline-4.3/readline.c	Tue Jul 30 23:58:00 2002
+@@ -566,7 +566,7 @@
+       if (func)
+ 	{
+ 	  /* Special case rl_do_lowercase_version (). */
+-	  if (func == rl_do_lowercase_version)
++	  if (key != ANYOTHERKEY && func == rl_do_lowercase_version)
+ 	    return (_rl_dispatch (_rl_to_lower (key), map));
+ 
+ 	  rl_executing_keymap = map;
