@@ -1,10 +1,11 @@
+%define		mainversion	4.2
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
-Version:	4.2a
+Version:	%{mainversion}a
 Release:	1
 License:	GPL
 Group:		Libraries
@@ -117,8 +118,8 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf ../../lib/libreadline.so.%{mainversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf ../../lib/libhistory.so.%{mainversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %post
 /sbin/ldconfig
