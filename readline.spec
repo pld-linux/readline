@@ -5,7 +5,7 @@ Summary(pl): Biblioteki do czytania lini z terminala
 Summary(tr): Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:        readline
 Version:     2.2.1
-Release:     2
+Release:     3
 Copyright:   GPL
 Group:       Libraries
 Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
