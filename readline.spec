@@ -8,6 +8,7 @@ Version:	4.1
 Release:	2
 License:	GPL
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	readline-sys_inputrc
@@ -40,15 +41,16 @@ Summary(fr):	Fichier pour développer des programmes utilisant la readline
 Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline
 Summary(tr):	readline kitaplýðýný kullanan programlar yazmak için gerekli dosyalar
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
 The "readline" library will read a line from the terminal and return it,
-using prompt as a prompt.  If prompt is null, no prompt is issued.  The
-line returned is allocated with malloc(3), so the caller must free it when
-finished.  The line returned has the final newline removed, so only the
-text of the line remains.
+using prompt as a prompt. If prompt is null, no prompt is issued. The line
+returned is allocated with malloc(3), so the caller must free it when
+finished. The line returned has the final newline removed, so only the text
+of the line remains.
 
 %description -l de devel
 Die "readline"-Library liest eine Zeile vom Terminal ein und gibt sie
@@ -58,12 +60,13 @@ Text der Zeile bleibt.
 %description -l pl devel
 Biblioteka readline czyta linie z terminala i zwracaj± j±, u¿ywaj±c znaku
 zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie jest
-wówczas wynikiowy.  Linia zwracana jest allokowana przez malloc(3).
+wówczas wynikiowy. Linia zwracana jest allokowana przez malloc(3).
 
 %package static
 Summary:	Static readline library
 Summary(pl):	Biblioteka statyczna readline
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
@@ -98,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,lib}
 
 make install install-shared DESTDIR=$RPM_BUILD_ROOT
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/inputrc
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 mv $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
@@ -122,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) /etc/inputrc
+%config(noreplace) %{_sysconfdir}/inputrc
 %attr(755,root,root) /lib/lib*.so.*.*
 %{_infodir}/*info*
 
