@@ -1,25 +1,27 @@
-diff -ru readline-4.0.old/Makefile.in readline-4.0/Makefile.in
---- readline-4.0.old/Makefile.in	Thu Feb 18 18:24:11 1999
-+++ readline-4.0/Makefile.in	Thu Jun 24 19:29:29 1999
-@@ -167,34 +167,35 @@
+diff -Nru readline-4.1/Makefile.in readline-4.1.new/Makefile.in
+--- readline-4.1/Makefile.in	Wed Dec 29 23:02:40 1999
++++ readline-4.1.new/Makefile.in	Thu Mar 23 08:02:31 2000
+@@ -171,7 +171,7 @@
  
- install: installdirs $(STATIC_LIBS)
+ install-headers: installdirs ${INSTALLED_HEADERS}
  	for f in ${INSTALLED_HEADERS}; do \
 -		$(INSTALL_DATA) $(srcdir)/$$f $(includedir)/readline ; \
 +		$(INSTALL_DATA) $(srcdir)/$$f $(DESTDIR)$(includedir)/readline ; \
  	done
+ 
+ uninstall-headers:
+@@ -181,27 +181,23 @@
+ maybe-uninstall-headers: uninstall-headers
+ 
+ install: installdirs $(STATIC_LIBS) install-headers
 -	-$(MV) $(libdir)/libreadline.a $(libdir)/libreadline.old
 -	$(INSTALL_DATA) libreadline.a $(libdir)/libreadline.a
 -	-test -n "$(RANLIB)" && $(RANLIB) -t $(libdir)/libreadline.a
 -	-$(MV) $(libdir)/libhistory.a $(libdir)/libhistory.old
 -	$(INSTALL_DATA) libhistory.a $(libdir)/libhistory.a
 -	-test -n "$(RANLIB)" && $(RANLIB) -t $(libdir)/libhistory.a
-+	-$(MV) $(libdir)/libreadline.a $(DESTDIR)$(libdir)/libreadline.old
 +	$(INSTALL_DATA) libreadline.a $(DESTDIR)$(libdir)/libreadline.a
-+	-test -n "$(RANLIB)" && $(RANLIB) -t $(DESTDIR)$(libdir)/libreadline.a
-+	-$(MV) $(libdir)/libhistory.a $(DESTDIR)$(libdir)/libhistory.old
 +	$(INSTALL_DATA) libhistory.a $(DESTDIR)$(libdir)/libhistory.a
-+	-test -n "$(RANLIB)" && $(RANLIB) -t $(DESTDIR)$(libdir)/libhistory.a
  	-( if test -d doc ; then \
  		cd doc && \
  		${MAKE} ${MFLAGS} infodir=$(infodir) $@; \
@@ -29,36 +31,27 @@ diff -ru readline-4.0.old/Makefile.in readline-4.0/Makefile.in
 -	-$(SHELL) $(srcdir)/support/mkdirs $(includedir) \
 -		$(includedir)/readline $(libdir) $(infodir) $(man3dir)
 +	-$(SHELL) $(srcdir)/support/mkdirs $(DESTDIR)$(includedir) \
-+		$(DESTDIR)$(includedir)/readline $(DESTDIR)$(libdir) \
-+		$(DESTDIR)$(infodir) $(DESTDIR)$(man3dir)
++		$(DESTDIR)$(includedir)/readline $(DESTDIR)$(libdir) $(DESTDIR)$(infodir) $(DESTDIR)$(man3dir)
  
- uninstall:
--	-test -n "$(includedir)" && cd $(includedir)/readline && \
-+	-test -n "$(DESTDIR)$(includedir)" && cd $(DESTDIR)$(includedir)/readline && \
- 		${RM} ${INSTALLED_HEADERS}
--	-test -n "$(libdir)" && cd $(libdir) && \
-+	-test -n "$(DESTDIR)$(libdir)" && cd $(DESTDIR)$(libdir) && \
+ uninstall: uninstall-headers
+ 	-test -n "$(libdir)" && cd $(libdir) && \
  		${RM} libreadline.a libreadline.old libhistory.a libhistory.old $(SHARED_LIBS)
  
- install-shared: installdirs shared
+ install-shared: installdirs install-headers shared
 -	-( cd shlib ; ${MAKE} ${MFLAGS} install )
 +	-( cd shlib ; ${MAKE} ${MFLAGS} DESTDIR=$(DESTDIR) install )
  
- uninstall-shared:
--	-( cd shlib; ${MAKE} ${MFLAGS} uninstall )
-+	-( cd shlib; ${MAKE} ${MFLAGS} DESTDIR=$(DESTDIR) uninstall )
- 
- TAGS:	force
- 	$(ETAGS) $(CSOURCES) $(HSOURCES)
-diff -ru readline-4.0.old/doc/Makefile.in readline-4.0/doc/Makefile.in
---- readline-4.0.old/doc/Makefile.in	Thu Feb 18 18:24:36 1999
-+++ readline-4.0/doc/Makefile.in	Thu Jun 24 19:33:10 1999
-@@ -113,26 +113,26 @@
+ uninstall-shared: maybe-uninstall-headers
+ 	-( cd shlib; ${MAKE} ${MFLAGS} uninstall )
+diff -Nru readline-4.1/doc/Makefile.in readline-4.1.new/doc/Makefile.in
+--- readline-4.1/doc/Makefile.in	Mon Jan 24 16:28:02 2000
++++ readline-4.1.new/doc/Makefile.in	Thu Mar 23 08:04:57 2000
+@@ -150,29 +150,25 @@
  	$(RM) Makefile
  
- installdirs:	$(top_srcdir)/support/mkdirs
--	-$(SHELL) $(top_srcdir)/support/mkdirs $(infodir) $(man3dir)
-+	-$(SHELL) $(top_srcdir)/support/mkdirs $(DESTDIR)$(infodir) $(DESTDIR)$(man3dir)
+ installdirs:	$(topdir)/support/mkdirs
+-	-$(SHELL) $(topdir)/support/mkdirs $(infodir) $(man3dir)
++	-$(SHELL) $(topdir)/support/mkdirs $(DESTDIR)$(infodir) $(DESTDIR)$(man3dir)
  
  install:	installdirs
  	if test -f readline.info; then \
@@ -68,6 +61,13 @@ diff -ru readline-4.0.old/doc/Makefile.in readline-4.0/doc/Makefile.in
 -		${INSTALL_DATA} $(srcdir)/readline.info $(infodir)/readline.info; \
 +		${INSTALL_DATA} $(srcdir)/readline.info $(DESTDIR)$(infodir)/readline.info; \
  	fi
+ 	if test -f rluserman.info; then \
+-		${INSTALL_DATA} rluserman.info $(infodir)/rluserman.info; \
++		${INSTALL_DATA} rluserman.info $(DESTDIR)$(infodir)/rluserman.info; \
+ 	else \
+-		${INSTALL_DATA} $(srcdir)/rluserman.info $(infodir)/rluserman.info; \
++		${INSTALL_DATA} $(srcdir)/rluserman.info $(DESTDIR)$(infodir)/rluserman.info; \
+ 	fi
  	if test -f history.info; then \
 -		${INSTALL_DATA} history.info $(infodir)/history.info; \
 +		${INSTALL_DATA} history.info $(DESTDIR)$(infodir)/history.info; \
@@ -75,26 +75,19 @@ diff -ru readline-4.0.old/doc/Makefile.in readline-4.0/doc/Makefile.in
 -		${INSTALL_DATA} $(srcdir)/history.info $(infodir)/history.info; \
 +		${INSTALL_DATA} $(srcdir)/history.info $(DESTDIR)$(infodir)/history.info; \
  	fi
- 	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
+-	-if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
 -		install-info --dir-file=$(infodir)/dir $(infodir)/readline.info ; \
 -		install-info --dir-file=$(infodir)/dir $(infodir)/history.info ; \
-+		install-info --dir-file=$(DESTDIR)$(infodir)/dir $(DESTDIR)$(infodir)/readline.info ; \
-+		install-info --dir-file=$(DESTDIR)$(infodir)/dir $(DESTDIR)$(infodir)/history.info ; \
- 	else true; fi
+-	else true; fi
 -	-${INSTALL_DATA} $(srcdir)/readline.3 $(man3dir)/readline.3
 +	-${INSTALL_DATA} $(srcdir)/readline.3 $(DESTDIR)$(man3dir)/readline.3
  
  uninstall:
--	$(RM) $(infodir)/readline.info
--	$(RM) $(infodir)/history.info
--	$(RM) $(man3dir)/readline.3
-+	$(RM) $(DESTDIR)$(infodir)/readline.info
-+	$(RM) $(DESTDIR)$(infodir)/history.info
-+	$(RM) $(DESTDIR)$(man3dir)/readline.3
-diff -ru readline-4.0.old/shlib/Makefile.in readline-4.0/shlib/Makefile.in
---- readline-4.0.old/shlib/Makefile.in	Thu Jun 24 19:22:20 1999
-+++ readline-4.0/shlib/Makefile.in	Thu Jun 24 19:31:05 1999
-@@ -144,16 +144,16 @@
+ 	$(RM) $(infodir)/readline.info
+diff -Nru readline-4.1/shlib/Makefile.in readline-4.1.new/shlib/Makefile.in
+--- readline-4.1/shlib/Makefile.in	Thu Mar 23 07:57:02 2000
++++ readline-4.1.new/shlib/Makefile.in	Thu Mar 23 07:57:02 2000
+@@ -145,16 +145,16 @@
  	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -lc -o $@ $(SHARED_HISTOBJ) xmalloc.so $(SHLIB_LIBS)
  
  installdirs: $(topdir)/support/mkdirs

@@ -1,7 +1,7 @@
-diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
---- readline-4.0/terminal.c	Tue Feb  2 19:26:20 1999
-+++ readline-4.0.new/terminal.c	Tue Jun 29 08:11:05 1999
-@@ -138,7 +138,10 @@
+diff -Nru readline-4.1/terminal.c readline-4.1.new/terminal.c
+--- readline-4.1/terminal.c	Mon Jan 24 16:44:28 2000
++++ readline-4.1.new/terminal.c	Thu Mar 23 08:08:23 2000
+@@ -126,7 +126,10 @@
  static char *term_ks, *term_ke;
  
  /* The key sequences sent by the Home and End keys, if any. */
@@ -13,17 +13,17 @@ diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
  
  /* Variables that hold the screen dimensions, used by the display code. */
  int screenwidth, screenheight, screenchars;
-@@ -252,7 +255,8 @@
-   "im", &term_im,
-   "kd", &term_kd,
-   "kh", &term_kh,	/* home */
--  "kH", &term_kH,	/* end */
-+  "@7", &term_kend,	/* end */
-+  "kD", &term_kD,	/* delete */
-   "kl", &term_kl,
-   "kr", &term_kr,
-   "ku", &term_ku,
-@@ -388,7 +392,8 @@
+@@ -265,7 +268,8 @@
+   { "im", &term_im },
+   { "kd", &term_kd },
+   { "kh", &term_kh },	/* home */
+-  { "kH", &term_kH },	/* end */
++  { "@7", &term_kend },	/* end */
++  { "kD", &term_kD },   /* delete */
+   { "kl", &term_kl },
+   { "kr", &term_kr },
+   { "ku", &term_ku },
+@@ -421,7 +425,8 @@
    _rl_bind_if_unbound (term_kl, rl_backward);
  
    _rl_bind_if_unbound (term_kh, rl_beg_of_line);	/* Home */
@@ -33,7 +33,7 @@ diff -Nru readline-4.0/bind.c readline-4.0.new/bind.c
  
  #if defined (VI_MODE)
    _rl_keymap = vi_movement_keymap;
-@@ -398,7 +403,8 @@
+@@ -431,7 +436,8 @@
    _rl_bind_if_unbound (term_kl, rl_backward);
  
    _rl_bind_if_unbound (term_kh, rl_beg_of_line);	/* Home */
