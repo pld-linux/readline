@@ -23,7 +23,6 @@ Patch2:		%{name}-sys_inputrc.patch
 Patch3:		%{name}-terminal.patch
 Patch4:		%{name}-guard.patch
 Patch5:		%{name}-header.patch
-Prereq:		/sbin/ldconfig
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
