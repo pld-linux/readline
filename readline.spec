@@ -4,8 +4,8 @@ Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
-Version:	4.1
-Release:	7
+Version:	4.2
+Release:	1
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -87,7 +87,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
+%patch4 -p1 -b .wiget
 %patch5 -p1
 
 %build
