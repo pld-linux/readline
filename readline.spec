@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	10
+Release:	11
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -18,8 +18,8 @@ Patch3:		readline-sys_inputrc.patch
 Patch4:		readline-terminal.patch
 Prereq:		/sbin/ldconfig
 Prereq:		/usr/sbin/fix-info-dir
-Requires:	ncurses >= 4.2-12
-BuildRequires:	ncurses-devel
+Requires:	ncurses >= 5.0
+BuildRequires:	ncurses-devel >= 5.0
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
