@@ -25,33 +25,6 @@
  #undef __CHAR_UNSIGNED__
 --- histfile.c~	2004-03-04 04:39:33.000000000 +0100
 +++ histfile.c	2004-12-19 03:53:01.196199720 +0100
-@@ -167,7 +167,7 @@
-   char *input, *buffer, *bufend, *last_ts;
-   int file, current_line, chars_read;
-   struct stat finfo;
--  size_t file_size;
-+  off_t file_size;
- #if defined (EFBIG)
-   int overflow_errno = EFBIG;
- #elif defined (EOVERFLOW)
-@@ -183,7 +183,7 @@
-   if ((file < 0) || (fstat (file, &finfo) == -1))
-     goto error_and_exit;
- 
--  file_size = (size_t)finfo.st_size;
-+  file_size = finfo.st_size;
- 
-   /* check for overflow on very large files */
-   if (file_size != finfo.st_size || file_size + 1 < file_size)
-@@ -332,7 +332,7 @@
-       goto truncate_exit;
-     }
- 
--  file_size = (size_t)finfo.st_size;
-+  file_size = finfo.st_size;
- 
-   /* check for overflow on very large files */
-   if (file_size != finfo.st_size || file_size + 1 < file_size)
 @@ -424,7 +424,7 @@
    char *output;
    int file, mode, rv;
