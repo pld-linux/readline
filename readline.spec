@@ -10,7 +10,7 @@ Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
 Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
 Version:	4.3
-Release:	4
+Release:	5
 License:	GPL
 Group:		Libraries
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -210,8 +210,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-ln -sf ../../lib/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf ../../lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /lib/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
