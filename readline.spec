@@ -23,6 +23,7 @@ Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		%{name}-segv.patch
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -188,7 +189,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 
 %build
 mv -f aclocal.m4 acinclude.m4
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--with-curses
@@ -212,6 +213,9 @@ mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 ln -sf ../../lib/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf ../../lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 /sbin/ldconfig
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
@@ -219,9 +223,6 @@ ln -sf ../../lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhis
 %postun
 /sbin/ldconfig
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
