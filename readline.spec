@@ -64,14 +64,18 @@ make static shared
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/lib
+
 make install install-shared prefix=$RPM_BUILD_ROOT/usr
-ln -sf libreadline.so.3.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
-ln -sf libhistory.so.3.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
 
 strip $RPM_BUILD_ROOT/usr/lib/lib*.so.*.*
 
 gzip -nf9 $RPM_BUILD_ROOT/usr/info/*info*
- 
+
+mv $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib 
+ln -sf ../../lib/libreadline.so.3.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
+ln -sf ../../lib/libhistory.so.3.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
+
 %post
 /sbin/ldconfig
 /sbin/install-info /usr/info/history.info.gz /usr/info/dir --entry="* history: (readline).                   The GNU history (from readline)."
@@ -89,7 +93,7 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(755, root, root) /usr/lib/lib*.so.*.*
+%attr(755, root, root) /lib/lib*.so.*.*
 %attr(644, root, root) /usr/info/*info*
 
 %files devel
@@ -102,6 +106,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/lib/lib*.a
 
 %changelog
+* Tue Oct  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2.1-3]
+- shared libs moved to /lib (neccesary for bash).
+
 * Mon Aug  10 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2.1-2]
 - added -q %setup parameter,
