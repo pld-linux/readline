@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	4.3
-Release:	6
+Release:	7
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -25,6 +25,9 @@ Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
 Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
+Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-003
+Patch9:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-004
+Patch10:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-005
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -193,6 +196,9 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch5 -p1
 %patch6 -p0
 %patch7 -p0
+%patch8 -p0
+%patch9 -p0
+%patch10 -p0
 
 %build
 mv -f aclocal.m4 acinclude.m4
