@@ -71,9 +71,8 @@ diff -r -u readline4-4.2.orig/doc/readline.3 readline4-4.2/doc/readline.3
  .PD
  .SH AUTHORS
  Brian Fox, Free Software Foundation
-diff -r -u readline4-4.2.orig/doc/rluser.texinfo readline4-4.2/doc/rluser.texinfo
---- readline4-4.2.orig/doc/rluser.texinfo	Mon Feb  5 15:38:11 2001
-+++ readline4-4.2/doc/rluser.texinfo	Tue Feb  6 18:24:42 2001
+--- readline-5.0.orig/doc/rluser.texi	Mon Feb  5 15:38:11 2001
++++ readline-5.0/doc/rluser.texi	Tue Feb  6 18:24:42 2001
 @@ -332,7 +332,8 @@
  @ifclear BashFeatures
  file is taken from the value of the environment variable @env{INPUTRC}.  If

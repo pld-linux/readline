@@ -1,5 +1,5 @@
---- readline-4.3/aclocal.m4.orig	Tue Jun 25 15:45:43 2002
-+++ readline-4.3/aclocal.m4	Sun Jul 28 15:59:39 2002
+--- readline-5.0/aclocal.m4.orig	2004-05-13 19:37:25.000000000 +0200
++++ readline-5.0/aclocal.m4	2004-08-05 01:18:12.809992936 +0200
 @@ -4,7 +4,7 @@
  dnl Some derived from PDKSH 5.1.3 autoconf tests
  dnl
@@ -285,10 +285,10 @@
  
 -AC_DEFUN(BASH_FUNC_GETCWD,
 +AC_DEFUN([BASH_FUNC_GETCWD],
- [AC_MSG_CHECKING([if getcwd() calls popen()])
- AC_CACHE_VAL(bash_cv_getcwd_calls_popen,
+ [AC_MSG_CHECKING([if getcwd() will dynamically allocate memory])
+ AC_CACHE_VAL(bash_cv_getcwd_malloc,
  [AC_TRY_RUN([
-@@ -753,7 +753,7 @@
+@@ -714,7 +714,7 @@
  dnl This needs BASH_CHECK_SOCKLIB, but since that's not called on every
  dnl system, we can't use AC_PREREQ
  dnl
@@ -297,7 +297,7 @@
  [if test "X$bash_cv_have_gethostbyname" = "X"; then
  _bash_needmsg=yes
  else
-@@ -775,7 +775,7 @@
+@@ -736,7 +736,7 @@
  fi
  ])
  
@@ -306,7 +306,7 @@
  [AC_MSG_CHECKING(if fnmatch does extended pattern matching with FNM_EXTMATCH)
  AC_CACHE_VAL(bash_cv_fnm_extmatch,
  [AC_TRY_RUN([
-@@ -799,7 +799,7 @@
+@@ -760,7 +760,7 @@
  fi
  ])
  
@@ -315,7 +315,7 @@
  [AC_REQUIRE([BASH_SYS_SIGNAL_VINTAGE])
  AC_MSG_CHECKING(for presence of POSIX-style sigsetjmp/siglongjmp)
  AC_CACHE_VAL(bash_cv_func_sigsetjmp,
-@@ -850,7 +850,7 @@
+@@ -811,7 +811,7 @@
  fi
  ])
  
@@ -324,7 +324,7 @@
  [
  AC_MSG_CHECKING(whether or not strcoll and strcmp differ)
  AC_CACHE_VAL(bash_cv_func_strcoll_broken,
-@@ -899,7 +899,7 @@
+@@ -860,7 +860,7 @@
  fi
  ])
  
@@ -333,7 +333,7 @@
  [AC_MSG_CHECKING([for printf floating point output in hex notation])
  AC_CACHE_VAL(bash_cv_printf_a_format,
  [AC_TRY_RUN([
-@@ -925,7 +925,7 @@
+@@ -886,7 +886,7 @@
  fi
  ])
  
@@ -342,7 +342,7 @@
  [
  AC_CHECK_MEMBER(struct termios.c_line, AC_DEFINE(TERMIOS_LDISC), ,[
  #include <sys/types.h>
-@@ -933,7 +933,7 @@
+@@ -894,7 +894,7 @@
  ])
  ])
  
@@ -351,7 +351,7 @@
  [
  AC_CHECK_MEMBER(struct termio.c_line, AC_DEFINE(TERMIO_LDISC), ,[
  #include <sys/types.h>
-@@ -948,7 +948,7 @@
+@@ -909,7 +909,7 @@
  dnl
  dnl unused for now; we'll see how AC_CHECK_MEMBERS works
  dnl
@@ -360,7 +360,7 @@
  [
  AC_MSG_CHECKING([for struct stat.st_blocks])
  AC_CACHE_VAL(bash_cv_struct_stat_st_blocks,
-@@ -972,7 +972,7 @@
+@@ -933,7 +933,7 @@
  fi
  ])
  
@@ -369,7 +369,7 @@
  [
  if test "X$bash_cv_termcap_lib" = "X"; then
  _bash_needmsg=yes
-@@ -1019,7 +1022,7 @@
+@@ -984,7 +984,7 @@
  dnl NOTE: IF WE FIND GETPEERNAME, WE ASSUME THAT WE HAVE BIND/CONNECT
  dnl	  AS WELL
  dnl
@@ -378,25 +378,34 @@
  [
  if test "X$bash_cv_have_socklib" = "X"; then
  _bash_needmsg=
-@@ -1059,7 +1062,7 @@
+@@ -1024,7 +1024,7 @@
  fi
  ])
  
 -AC_DEFUN(BASH_STRUCT_DIRENT_D_INO,
 +AC_DEFUN([BASH_STRUCT_DIRENT_D_INO],
  [AC_REQUIRE([AC_HEADER_DIRENT])
- AC_MSG_CHECKING(if struct dirent has a d_ino member)
+ AC_MSG_CHECKING(for struct dirent.d_ino)
  AC_CACHE_VAL(bash_cv_dirent_has_dino,
-@@ -1092,7 +1095,7 @@
+@@ -1057,7 +1057,7 @@
  fi
  ])
  
 -AC_DEFUN(BASH_STRUCT_DIRENT_D_FILENO,
 +AC_DEFUN([BASH_STRUCT_DIRENT_D_FILENO],
  [AC_REQUIRE([AC_HEADER_DIRENT])
- AC_MSG_CHECKING(if struct dirent has a d_fileno member)
+ AC_MSG_CHECKING(for struct dirent.d_fileno)
  AC_CACHE_VAL(bash_cv_dirent_has_d_fileno,
-@@ -1125,7 +1128,7 @@
+@@ -1090,7 +1090,7 @@
+ fi
+ ])
+ 
+-AC_DEFUN(BASH_STRUCT_DIRENT_D_NAMLEN,
++AC_DEFUN([BASH_STRUCT_DIRENT_D_NAMLEN],
+ [AC_REQUIRE([AC_HEADER_DIRENT])
+ AC_MSG_CHECKING(for struct dirent.d_namlen)
+ AC_CACHE_VAL(bash_cv_dirent_has_d_namlen,
+@@ -1123,7 +1123,7 @@
  fi
  ])
  
@@ -405,7 +414,16 @@
  [AC_MSG_CHECKING(for struct timeval in sys/time.h and time.h)
  AC_CACHE_VAL(bash_cv_struct_timeval,
  [
-@@ -1141,7 +1144,7 @@
+@@ -1139,7 +1139,7 @@
+ fi
+ ])
+ 
+-AC_DEFUN(BASH_STRUCT_TIMEZONE,
++AC_DEFUN([BASH_STRUCT_TIMEZONE],
+ [AC_MSG_CHECKING(for struct timezone in sys/time.h and time.h)
+ AC_CACHE_VAL(bash_cv_struct_timezone,
+ [
+@@ -1155,7 +1155,7 @@
  fi
  ])
  
@@ -414,7 +432,7 @@
  [AC_MSG_CHECKING(for struct winsize in sys/ioctl.h and termios.h)
  AC_CACHE_VAL(bash_cv_struct_winsize_header,
  [AC_TRY_COMPILE([#include <sys/types.h>
-@@ -1163,7 +1166,7 @@
+@@ -1177,7 +1177,7 @@
  ])
  
  dnl Check type of signal routines (posix, 4.2bsd, 4.1bsd or v7)
@@ -423,7 +441,7 @@
  [AC_REQUIRE([AC_TYPE_SIGNAL])
  AC_MSG_CHECKING(for type of signal functions)
  AC_CACHE_VAL(bash_cv_signal_vintage,
-@@ -1203,7 +1206,7 @@
+@@ -1217,7 +1217,7 @@
  ])
  
  dnl Check if the pgrp of setpgrp() can't be the pid of a zombie process.
@@ -432,7 +450,7 @@
  [AC_REQUIRE([AC_FUNC_GETPGRP])
  AC_MSG_CHECKING(whether pgrps need synchronization)
  AC_CACHE_VAL(bash_cv_pgrp_pipe,
-@@ -1265,7 +1268,7 @@
+@@ -1279,7 +1279,7 @@
  fi
  ])
  
@@ -441,7 +459,7 @@
  [AC_REQUIRE([AC_TYPE_SIGNAL])
  AC_REQUIRE([BASH_SYS_SIGNAL_VINTAGE])
  AC_MSG_CHECKING([if signal handlers must be reinstalled when invoked])
-@@ -1324,7 +1327,7 @@
+@@ -1338,7 +1338,7 @@
  ])
  
  dnl check that some necessary job control definitions are present
@@ -450,7 +468,7 @@
  [AC_REQUIRE([BASH_SYS_SIGNAL_VINTAGE])
  AC_MSG_CHECKING(for presence of necessary job control definitions)
  AC_CACHE_VAL(bash_cv_job_control_missing,
-@@ -1383,7 +1386,7 @@
+@@ -1397,7 +1397,7 @@
  
  dnl check whether named pipes are present
  dnl this requires a previous check for mkfifo, but that is awkward to specify
@@ -459,7 +477,7 @@
  [AC_MSG_CHECKING(for presence of named pipes)
  AC_CACHE_VAL(bash_cv_sys_named_pipes,
  [AC_TRY_RUN([
-@@ -1433,7 +1436,7 @@
+@@ -1447,7 +1447,7 @@
  fi
  ])
  
@@ -468,7 +486,7 @@
  [AC_MSG_CHECKING(for default mail directory)
  AC_CACHE_VAL(bash_cv_mail_dir,
  [if test -d /var/mail; then
-@@ -1452,7 +1455,7 @@
+@@ -1466,7 +1466,7 @@
  AC_DEFINE_UNQUOTED(DEFAULT_MAIL_DIRECTORY, "$bash_cv_mail_dir")
  ])
  
@@ -477,7 +495,7 @@
  [AC_MSG_CHECKING(for TIOCGWINSZ in sys/ioctl.h)
  AC_CACHE_VAL(bash_cv_tiocgwinsz_in_ioctl,
  [AC_TRY_COMPILE([#include <sys/types.h>
-@@ -1464,7 +1467,7 @@
+@@ -1478,7 +1478,7 @@
  fi
  ])
  
@@ -486,7 +504,7 @@
  [AC_MSG_CHECKING(for TIOCSTAT in sys/ioctl.h)
  AC_CACHE_VAL(bash_cv_tiocstat_in_ioctl,
  [AC_TRY_COMPILE([#include <sys/types.h>
-@@ -1476,7 +1479,7 @@
+@@ -1490,7 +1490,7 @@
  fi
  ])
  
@@ -495,7 +513,7 @@
  [AC_MSG_CHECKING(for FIONREAD in sys/ioctl.h)
  AC_CACHE_VAL(bash_cv_fionread_in_ioctl,
  [AC_TRY_COMPILE([#include <sys/types.h>
-@@ -1494,7 +1497,7 @@
+@@ -1508,7 +1508,7 @@
  dnl but you can only get speed_t if you include <termios.h> (on some
  dnl versions) or <sys/types.h> (on others).
  dnl
@@ -504,7 +522,7 @@
  [AC_MSG_CHECKING(for speed_t in sys/types.h)
  AC_CACHE_VAL(bash_cv_speed_t_in_sys_types,
  [AC_TRY_COMPILE([#include <sys/types.h>], [speed_t x;],
-@@ -1505,7 +1508,7 @@
+@@ -1519,7 +1519,7 @@
  fi
  ])
  
@@ -513,7 +531,7 @@
  [AC_MSG_CHECKING(whether getpw functions are declared in pwd.h)
  AC_CACHE_VAL(bash_cv_getpw_declared,
  [AC_EGREP_CPP(getpwuid,
-@@ -1523,7 +1526,7 @@
+@@ -1537,7 +1537,7 @@
  fi
  ])
  
@@ -521,8 +539,8 @@
 +AC_DEFUN([BASH_CHECK_DEV_FD],
  [AC_MSG_CHECKING(whether /dev/fd is available)
  AC_CACHE_VAL(bash_cv_dev_fd,
- [if test -d /dev/fd  && test -r /dev/fd/0; then
-@@ -1544,7 +1547,7 @@
+ [if test -d /dev/fd  && test -r /dev/fd/0 < /dev/null; then
+@@ -1558,7 +1558,7 @@
  fi
  ])
  
@@ -530,8 +548,8 @@
 +AC_DEFUN([BASH_CHECK_DEV_STDIN],
  [AC_MSG_CHECKING(whether /dev/stdin stdout stderr are available)
  AC_CACHE_VAL(bash_cv_dev_stdin,
- [if test -d /dev/fd && test -r /dev/stdin; then
-@@ -1564,7 +1567,7 @@
+ [if test -d /dev/fd && test -r /dev/stdin < /dev/null; then
+@@ -1578,7 +1578,7 @@
  dnl
  dnl Check if HPUX needs _KERNEL defined for RLIMIT_* definitions
  dnl
@@ -540,7 +558,7 @@
  [AC_MSG_CHECKING([whether $host_os needs _KERNEL for RLIMIT defines])
  AC_CACHE_VAL(bash_cv_kernel_rlimit,
  [AC_TRY_COMPILE([
-@@ -1598,7 +1601,7 @@
+@@ -1612,7 +1612,7 @@
  dnl C does not allow duplicate case labels, so the compile will fail if
  dnl sizeof(off_t) is > 4.
  dnl
@@ -549,7 +567,7 @@
  [AC_CACHE_CHECK(for 64-bit off_t, bash_cv_off_t_64,
  AC_TRY_COMPILE([
  #ifdef HAVE_UNISTD_H
-@@ -1612,7 +1615,7 @@
+@@ -1626,7 +1626,7 @@
          AC_DEFINE(HAVE_OFF_T_64)
  fi])
  
@@ -558,7 +576,7 @@
  [AC_MSG_CHECKING(for unusable real-time signals due to large values)
  AC_CACHE_VAL(bash_cv_unusable_rtsigs,
  [AC_TRY_RUN([
-@@ -1646,7 +1649,7 @@
+@@ -1660,7 +1660,7 @@
  dnl
  dnl check for availability of multibyte characters and functions
  dnl
@@ -567,7 +585,7 @@
  [
  AC_CHECK_HEADERS(wctype.h)
  AC_CHECK_HEADERS(wchar.h)
-@@ -1684,7 +1687,7 @@
+@@ -1700,7 +1700,7 @@
  dnl	AC_PROG_CC
  dnl	BASH_CHECK_LIB_TERMCAP
  
@@ -576,3 +594,12 @@
  [
  AC_REQUIRE([BASH_CHECK_LIB_TERMCAP])
  
+@@ -1808,7 +1808,7 @@
+ fi
+ ])
+ 
+-AC_DEFUN(BASH_FUNC_CTYPE_NONASCII,
++AC_DEFUN([BASH_FUNC_CTYPE_NONASCII],
+ [
+ AC_MSG_CHECKING(whether the ctype macros accept non-ascii characters)
+ AC_CACHE_VAL(bash_cv_func_ctype_nonascii,
