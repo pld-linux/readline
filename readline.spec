@@ -64,12 +64,12 @@ The line returned is allocated with malloc(3), so the caller must free
 it when finished. The line returned has the final newline removed, so
 only the text of the line remains.
 
-%description -l de devel
+%description devel -l de
 Die "readline"-Library liest eine Zeile vom Terminal ein und gibt sie
 zurück. Die zurückgegebene Zeile hat kein newline am Ende, so daß nur
 der Text der Zeile bleibt.
 
-%description -l pl devel
+%description devel -l pl
 Biblioteka "readline" czyta liniê z terminala i zwracaj± j±, u¿ywaj±c
 znaku zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie
 jest wy¶wietlany. Linia zwracana jest allokowana przez malloc(3).
@@ -86,7 +86,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 This package contains static version of readline library.
 
-%description -l pl static
+%description static -l pl
 Pakiet ten zawiera wersjê statycznê biblioteki readline.
 
 %prep
@@ -100,26 +100,26 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch6 -p1
 
 %build
-%{__autoconf}
+autoconf
 %configure \
 	--with-curses
 
 %{__make} static shared
 
-%{__rm} -f doc/*.info
+rm -f doc/*.info
 %{__make} -C doc info
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT/{etc,lib}
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/{etc,lib}
 
 %{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
-%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
-%{__mv} -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-%{__ln_s} -f ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-%{__ln_s} -f ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln_s -f ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln_s -f ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %post
 /sbin/ldconfig
@@ -130,7 +130,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 [ !  -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
