@@ -1,18 +1,19 @@
-Summary:     Library for reading lines from a terminal
-Summary(de): Library zum Lesen von Zeilen von einem Terminal
-Summary(fr): Bibliothéque pour lire des lignes depuis un terminal.
-Summary(pl): Biblioteki do czytania lini z terminala
-Summary(tr): Terminalden satýr okumak için kullanýlan bir kitaplýk
-Name:        readline
-Version:     2.2.1
-Release:     4
-Copyright:   GPL
-Group:       Libraries
-Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      readline-shared.patch
-Patch1:      readline-info.patch
-Prereq:      /sbin/install-info
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	Library for reading lines from a terminal
+Summary(de):	Library zum Lesen von Zeilen von einem Terminal
+Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal.
+Summary(pl):	Biblioteki do czytania lini z terminala
+Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
+Name:		readline
+Version:	4.0
+Release:	1
+Copyright:	GPL
+Group:		Libraries
+Group(pl):	Biblioteki
+Source:		ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:		readline-shared.patch
+Patch1:		readline-info.patch
+Prereq:		/sbin/install-info
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 The "readline" library will read a line from the terminal and return it,
@@ -21,13 +22,14 @@ It allows the programmer to give the user an easier-to-use and more
 intuitive interface.
 
 %package devel
-Summary:     file for developing programs that use the readline library
-Summary(de): Datei zum Entwickeln von Programmen mit der readline-Library
-Summary(fr): Fichier pour développer des programmes utilisant la librairie readline.
-Summary(pl): Pakiet dla programistów u¿ywaj±cych bibliotek readline'a
-Summary(tr): readline kitaplýðýný kullanan programlar yazmak için gerekli dosyalar
-Group:       Development/Libraries
-Requires:    %{name} = %{version}
+Summary:	file for developing programs that use the readline library
+Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
+Summary(fr):	Fichier pour développer des programmes utilisant la librairie readline.
+Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline'a
+Summary(tr):	readline kitaplýðýný kullanan programlar yazmak için gerekli dosyalar
+Group:		Development/Libraries
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
 The "readline" library will read a line from the terminal and return it,
@@ -43,10 +45,11 @@ zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie jest
 wówczas wynikiowy.  Linia zwracana jest allokowana przez malloc(3).
 
 %package static
-Summary:     Static readline library
-Summary(pl): Biblioteka statyczna readline
-Group:       Development/Libraries
-Requires:    %{name}-devel = %{version}
+Summary:	Static readline library
+Summary(pl):	Biblioteka statyczna readline
+Group:		Development/Libraries
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name}-devel = %{version}
 
 %description static
 This package contains sattic version readline library.
@@ -74,8 +77,8 @@ install -d $RPM_BUILD_ROOT/lib
 make install install-shared prefix=$RPM_BUILD_ROOT/usr
 
 mv $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib 
-ln -sf ../../lib/libreadline.so.3.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
-ln -sf ../../lib/libhistory.so.3.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
+ln -sf ../../lib/libreadline.so.4.0 $RPM_BUILD_ROOT/usr/lib/libreadline.so
+ln -sf ../../lib/libhistory.so.4.0 $RPM_BUILD_ROOT/usr/lib/libhistory.so
 
 strip $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
@@ -105,16 +108,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 /usr/include/readline
 /usr/lib/lib*.so
-%attr(644, root, man) /usr/man/man3/*
+/usr/man/man3/*
 
 %files static
 %attr(644, root, root) /usr/lib/lib*.a
 
 %changelog
-* Sat Jan 02 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2.1-4]
+* Mon Feb 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.0-1]
+- removed man group from man pages,
 - standarized {un}registering info pages (added readline-info.patch),
 - added LDFLAGS="-s" to ./configure enviroment, 
+- added Group(pl),
 - added gzipping man pages.
 
 * Tue Oct  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
