@@ -1,11 +1,16 @@
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
+Summary(es):	Biblioteca para lectura de lМneas de un terminal
 Summary(fr):	BibliothИque pour lire des lignes depuis un terminal
+Summary(ja):	readline ╔И╔╓╔ж╔И╔Й
 Summary(pl):	Biblioteki do czytania linii z terminala
+Summary(pt_BR):	Biblioteca para leitura de linhas de um terminal
+Summary(ru):	Библиотека для чтения строк с терминала
 Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
+Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
 Version:	4.2a
-Release:	4
+Release:	5
 License:	GPL
 Group:		Libraries
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -35,18 +40,53 @@ emacs-Editiertasten Дndern kann. Sie erlaubt einem Programmierer, dem
 User ein einfacher zu benutzendes und intuitiveres Interface zu
 schreiben.
 
+%description -l es
+La biblioteca "readline" leerА una lМnea del terminal y la recuperarА,
+permitiendo al usuario editar la lМnea con las teclas de ediciСn
+padrСn emacs. Permite al programador dar al usuario una interface mАs
+fАcil de usar y mАs intuitiva.
+
+%description -l ja
+"readline" ╔И╔╓╔ж╔И╔Й╓Рмя╓╓╓К╓х║╒ц╪кЖ╓╚╓Ифи╓ъ╓Ё╓С╓ю╟Л╧т╓Р║╒emacs
+╓ни╦╫Ю╔╜║╪
+╓хф╠╔╜║╪╔п╔╓╔С╔г╔ё╔С╔╟╓гйт╫╦╓г╓╜╓К╓Х╓╕╓к╓й╓Й╓ч╓╧║ё╓Ё╓Л╓Р╔в╔М╔╟╔И╔ЮцФ╓г╩х╓╕╓х║╒
+╓Х╓Й╩х╓╓╓Д╓╧╓╓╔╓╔С╔©╔у╔╖║╪╔╧╓Р╔Ф║╪╔╤╓кдС╤║╓г╓╜╓ч╓╧║ё
+
 %description -l pl
 Biblioteka "readline" czyta liniЙ z terminala i zwraca j╠, pozwalaj╠c
 u©ytkownikowi edytowaФ j╠ za pomoc╠ standardowych klawiszy edycyjnych
 emacsa. Pozwala programi╤cie daФ u©ytkownikowi Ёatwy do u©ycia i
 bardziej intuicyjny interfejs.
 
+%description -l pt_BR
+A biblioteca "readline" lerА uma linha do terminal e irА retornА-la,
+permitindo ao usuАrio editar a linha com as teclas de ediГЦo padrЦo
+emacs. Ele permite ao programador dar ao usuАrio uma interface mais
+fАcil de usar e mais intuitiva.
+
+%description -l ru
+Библиотека "readline" читает строку с терминала и возвращает ее,
+позволяя пользователю редактировать строку при помощи стандартных
+клавиш emacs. Позволяет программисту предоставить пользователю более
+простой и интуитивный интерфейс. Правильно работает с locale.
+
+%description -l uk
+Б╕бл╕отека "readline" чита╓ стр╕чку з терм╕нала ╕ поверта╓ ╖╖,
+дозволяючи користувачу редагувати стр╕чку за допомогою стандартних
+клав╕ш emacs. Дозволя╓ програм╕сту забезпечити б╕льш простий та
+╕нту╕тивний ╕нтерфейс користувача. Правильно працю╓ з locale.
+
 %package devel
 Summary:	file for developing programs that use the readline library
 Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
+Summary(es):	Archivo para desarrollar programas que utilicen la biblioteca para lectura de lМneas
 Summary(fr):	Fichier pour dИvelopper des programmes utilisant la readline
+Summary(ja):	readline ╔И╔╓╔ж╔И╔Й╓Р╩х╓╕╔в╔М╔╟╔И╔Ю╓©╓А╓нЁ╚х╞мя╔И╔╓╔ж╔И╔Й
 Summary(pl):	Pakiet dla programistСw u©ywaj╠cych bibliotek readline
+Summary(pt_BR):	Arquivo para desenvolver programas que utilizam a readline
+Summary(ru):	Файлы, необходимые для разработки программ, использующих библиотеку readline
 Summary(tr):	readline kitaplЩПЩnЩ kullanan programlar yazmak iГin gerekli dosyalar
+Summary(uk):	Файли, необх╕дн╕ для розробки програм, що використовують б╕бл╕отеку readline
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	ncurses-devel
@@ -63,22 +103,77 @@ Die "readline"-Library liest eine Zeile vom Terminal ein und gibt sie
 zurЭck. Die zurЭckgegebene Zeile hat kein newline am Ende, so daъ nur
 der Text der Zeile bleibt.
 
+%description devel -l es
+La biblioteca readline leerА una lМnea del terminal y la recuperarА,
+usando prompt como prompt. Si prompt es nulo, ningЗn prompt se enseЯa.
+La lМnea recuperada es alocada con malloc(3), debiendo el llamador
+liberarla cuando terminar. La lМnea recuperada tiene el salto de lМnea
+final quitado, de esta forma solamente el texto de la lМnea se pone a
+disposiciСn.
+
+%description -l ja
+"readline"
+╔И╔╓╔ж╔И╔Й╓оц╪кЖ╓╚╓И╟Л╧тфи╓Ю╓х║╒╔в╔М╔С╔в╔х╓х╓х╓Б╓к╓╫╓Л╓Рйж╓╥
+╓ч╓╧║ёйж╓Йцм╓х╓й╓К╧т╓о malloc ╓гЁД╓ЙеЖ╓ф╓И╓Л║╒╫╙н╩╩Ч╓к╓о╓╫╓н╔А╔Б╔Й╓о
+Ё╚йЭ╓╥╓й╓╓╓х╓╓╓╠╓ч╓╩╓С║ё
+
 %description devel -l pl
 Biblioteka "readline" czyta liniЙ z terminala i zwracaj╠ j╠, u©ywaj╠c
 znaku zachЙty (prompt) jako podpowiedzi. Je©eli prompt jest zerem, nie
 jest wy╤wietlany. Linia zwracana jest allokowana przez malloc(3).
 
+%description devel -l pt_BR
+A biblioteca readline lerА uma linha do terminal e a retornarА, usando
+prompt como prompt. Se prompt И nulo, nenhum prompt И mostrado. A
+linha retornada И alocada com malloc(3), devendo o chamador liberА-la
+quando terminar. A linha retornada tem o salto de linha final
+removido, desta forma somente o texto da linha И disponibilizado.
+
+%description devel -l ru
+Библиотека "readline" читает строку с терминала и возвращает ее,
+предваряя заданным системным приглашением (prompt). Если эта подсказка
+представляет собой пустую строку, на экран не выдается никакой
+подсказки. Возвращаемая строка занимает память, выделенную функцией
+malloc(3), поэтому вызывающая программа должна освободить эту память
+до своего завершения. Возвращаемая строка не содержит заключительного
+перевода строки, т.е. возвращается только текст строки.
+
+%description devel -l uk
+Б╕бл╕отека "readline" чита╓ стр╕чку з терм╕нала ╕ поверта╓ ╖╖,
+добавляючи на початку задане системне запрошення (prompt). Якщо це
+запрошення явля╓ собою порожню стр╕чку, н╕яко╖ п╕дказки на екран не
+вида╓ться. Стр╕чка, що поверта╓ться б╕бл╕отекою, займа╓ пам'ять,
+вид╕лену функц╕╓ю malloc(3), так що програма ма╓ зв╕льнити цю пам'ять
+до свого завершення. Стр╕чка НЕ м╕стить заключного переводу стр╕чки,
+т.ч. поверта╓ться т╕льки текст стр╕чки.
+
 %package static
 Summary:	Static readline library
+Summary(es):	Static libraries for readline development
 Summary(pl):	Biblioteka statyczna readline
+Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a readline
+Summary(ru):	Статические библиотеки readline
+Summary(uk):	Статичн╕ б╕бл╕отеки readline
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
 This package contains static version of readline library.
 
+%description static -l es
+Static libraries for readline development.
+
 %description static -l pl
 Pakiet ten zawiera wersjЙ statyczn╠ biblioteki readline.
+
+%description static -l pt_BR
+Bibliotecas estАticas para desenvolvimento com readline.
+
+%description static -l ru
+Это статические библиотеки readline.
+
+%description static -l uk
+Це статичн╕ б╕бл╕отеки readline.
 
 %prep
 %setup -q
