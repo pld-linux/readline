@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	9
+Release:	10
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
