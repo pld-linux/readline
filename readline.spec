@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.1
-Release:	6
+Release:	7
 License:	GPL
 Group:		Libraries
 Group(de):	Libraries
@@ -114,11 +114,11 @@ ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.s
 
 %post
 /sbin/ldconfig
-[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 /sbin/ldconfig
-[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ !  -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
