@@ -1,0 +1,3 @@
+- fixed descriptions,
+- added %verify flags for %{_sysconfdir}/inputrc file,
+- added using %{__*} macros.
