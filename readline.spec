@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ŞÉÔÁÎÎÑ ÓÔÒ¦ŞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	4.3
-Release:	9
+Release:	10
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -201,6 +201,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch10 -p0
 
 %build
+cp -f /usr/share/automake/config.sub support
 mv -f aclocal.m4 acinclude.m4
 %{__aclocal}
 %{__autoconf}
