@@ -14,6 +14,7 @@ Release:	6
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
+# Source0-md5: f86f7cb717ab321fe15f1bbcb058c11e
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
 Patch1:		%{name}-shared.patch
