@@ -1,7 +1,7 @@
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
-Summary(pl):	Biblioteki do czytania lini z terminala
+Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.2
@@ -38,6 +38,12 @@ emacs-Editiertasten ändern kann. Sie erlaubt einem Programmierer, dem
 User ein einfacher zu benutzendes und intuitiveres Interface zu
 schreiben.
 
+%description -l pl
+Biblioteka "readline" czyta liniê z terminala i zwraca j±, pozwalaj±c
+u¿ytkownikowi edytowaæ j± za pomoc± standardowych klawiszy edycyjnych
+emacsa. Pozwala programi¶cie daæ u¿ytkownikowi ³atwy do u¿ycia i
+bardziej intuicyjny interfejs.
+
 %package devel
 Summary:	file for developing programs that use the readline library
 Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
@@ -64,10 +70,9 @@ zurück. Die zurückgegebene Zeile hat kein newline am Ende, so daß nur
 der Text der Zeile bleibt.
 
 %description -l pl devel
-Biblioteka readline czyta linie z terminala i zwracaj± j±, u¿ywaj±c
+Biblioteka "readline" czyta liniê z terminala i zwracaj± j±, u¿ywaj±c
 znaku zachêty (prompt) jako podpowiedzi. Je¿eli prompt jest zerem, nie
-jest wówczas wynikiowy. Linia zwracana jest allokowana przez
-malloc(3).
+jest wy¶wietlany. Linia zwracana jest allokowana przez malloc(3).
 
 %package static
 Summary:	Static readline library
@@ -79,7 +84,7 @@ Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
-This package contains sattic version readline library.
+This package contains static version of readline library.
 
 %description -l pl static
 Pakiet ten zawiera wersjê statycznê biblioteki readline.
@@ -95,26 +100,26 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %patch6 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure \
 	--with-curses
 
 %{__make} static shared
 
-rm -f doc/*.info
+%{__rm} -f doc/*.info
 %{__make} -C doc info
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,lib}
+%{__rm} -rf $RPM_BUILD_ROOT
+%{__install} -d $RPM_BUILD_ROOT/{etc,lib}
 
 %{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
+%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+%{__mv} -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 
-ln -sf ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+%{__ln_s} -f ../../lib/libreadline.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+%{__ln_s} -f ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 %post
 /sbin/ldconfig
@@ -125,11 +130,11 @@ ln -sf ../../lib/libhistory.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libhistory.s
 [ !  -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+%{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %{_sysconfdir}/inputrc
+%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/inputrc
 %attr(755,root,root) /lib/lib*.so.*.*
 %{_infodir}/*info*
 
