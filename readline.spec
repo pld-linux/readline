@@ -5,7 +5,7 @@ Summary(pl):	Biblioteki do czytania lini z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.0
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -13,7 +13,9 @@ Source:		ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:		readline-shared.patch
 Patch1:		readline-info.patch
 Prereq:		/sbin/install-info
+Requires:	ncurses >= 4.2-12
 Buildroot:	/tmp/%{name}-%{version}-root
+Conflicts:	glibc <= 2.0.7
 
 %description
 The "readline" library will read a line from the terminal and return it,
@@ -92,7 +94,7 @@ gzip -nf9 $RPM_BUILD_ROOT/usr/{info/*info*,man/man3/*}
 %postun -p /sbin/ldconfig
 
 %preun
-if [ $1 = 0 ]; then
+if [ "$1" = "0" ]; then
 	/sbin/install-info --delete /usr/info/history.info.gz /etc/info-dir
 	/sbin/install-info --delete /usr/info/readline.info.gz /etc/info-dir
 fi
@@ -114,6 +116,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/lib/lib*.a
 
 %changelog
+* Sat Feb 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.0-2]
+- added "Requires: ncurses >= 4.2-12" and "Conflicts: glibc <= 2.0.7"
+  for prevent installing readline with proper versions glibc a ncurses.
+
 * Mon Feb 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.0-1]
 - removed man group from man pages,
