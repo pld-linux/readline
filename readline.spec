@@ -10,12 +10,12 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÞÔÅÎÉÑ ÓÔÒÏË Ó ÔÅÒÍÉÎÁÌÁ
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
-Version:	4.3
-Release:	11
+Version:	5.0
+Release:	0.1
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
-# Source0-md5: f86f7cb717ab321fe15f1bbcb058c11e
+Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
+# Source0-md5:	9a39d15f1ed592883f8c6671e8c13120
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
 Patch1:		%{name}-shared.patch
@@ -23,11 +23,11 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
-Patch6:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
-Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
-Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-003
-Patch9:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-004
-Patch10:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-005
+#Patch6:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
+#Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
+#Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-003
+#Patch9:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-004
+#Patch10:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-005
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -194,11 +194,6 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p0
-%patch7 -p0
-%patch8 -p0
-%patch9 -p0
-%patch10 -p0
 
 %build
 cp -f /usr/share/automake/config.sub support
