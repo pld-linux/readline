@@ -3,6 +3,7 @@ Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es):	Biblioteca para lectura de líneas de un terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(ja):	readline ¥é¥¤¥Ö¥é¥ê
+Summary(ko):	ÅÍ¹Ì³Î¿¡¼­ ÇÑÁÙ¾¿ ÀĞÀ»¶§ »ç¿ëÇÏ´Â ¶óÀÌºê·¯¸
 Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(pt_BR):	Biblioteca para leitura de linhas de um terminal
 Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ŞÔÅÎÉÑ ÓÔÒÏË Ó ÔÅÒÍÉÎÁÌÁ
@@ -88,6 +89,7 @@ Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
 Summary(es):	Archivo para desarrollar programas que utilicen la biblioteca para lectura de líneas
 Summary(fr):	Fichier pour développer des programmes utilisant la readline
 Summary(ja):	readline ¥é¥¤¥Ö¥é¥ê¤ò»È¤¦¥×¥í¥°¥é¥à¤¿¤á¤Î³«È¯ÍÑ¥é¥¤¥Ö¥é¥ê
+Summary(ko):	readline ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇÏ´Â ÇÁ·Î±×·¥À» ¸¸µé¶§ »ç¿ëÇÏ´Â ÆÄÀÏµé
 Summary(pl):	Pakiet dla programistów u¿ywaj±cych bibliotek readline
 Summary(pt_BR):	Arquivo para desenvolver programas que utilizam a readline
 Summary(ru):	æÁÊÌÙ, ÎÅÏÂÈÏÄÉÍÙÅ ÄÌÑ ÒÁÚÒÁÂÏÔËÉ ĞÒÏÇÒÁÍÍ, ÉÓĞÏÌØÚÕÀİÉÈ ÂÉÂÌÉÏÔÅËÕ readline
