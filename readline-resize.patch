@@ -1,0 +1,10 @@
+--- readline-4.1/readline.c.orig	Thu Mar 22 00:17:35 2018
++++ readline-4.1/readline.c	Tue Mar 20 00:04:46 2018
+@@ -372,6 +372,7 @@
+   while (rl_done == 0)
+     {
+ #endif
++      rl_resize_terminal();
+       lk = _rl_last_command_was_kill;
+ 
+       code = setjmp (readline_top_level);
