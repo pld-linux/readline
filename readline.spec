@@ -1,7 +1,7 @@
 Summary:	Library for reading lines from a terminal
 Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
-Summary(pl):	Biblioteki do czytania lini z terminala
+Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Name:		readline
 Version:	4.2a
