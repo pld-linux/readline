@@ -68,7 +68,7 @@ Pakiet ten zawiera wersjê statycznê biblioteki readline.
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
     ./configure \
-	--prefix=/usr \
+	--prefix=%{_target} \
 	--with-curses \
 	--infodir=%{_infodir} %{_target_platform}
 
@@ -128,13 +128,13 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 
 * Tue Apr 20 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.0-3]
+  [4.0-4]
 - removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
 - added Buildprereq: ncurses-devel,
 - recompiles on new rpm.
 
 * Sun Mar 14 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [4.0-4]
+  [4.0-3]
 - added %deffattr(644,root,root,755) in main subpackage,
 - fixed permission of /usr/lib/lib*.so.
 
