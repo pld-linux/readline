@@ -9,17 +9,17 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÞÔÅÎÉÑ ÓÔÒÏË Ó ÔÅÒÍÉÎÁÌÁ
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
-Version:	4.2a
-Release:	5
+Version:	4.3
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/readline/%{name}-%{version}.tar.gz
 Source1:	%{name}-sys_inputrc
-Patch0:		%{name}-shared.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-sys_inputrc.patch
-Patch3:		%{name}-terminal.patch
-Patch4:		%{name}-guard.patch
+Patch0:		%{name}-ac25x.patch
+Patch1:		%{name}-shared.patch
+Patch2:		%{name}-info.patch
+Patch3:		%{name}-sys_inputrc.patch
+Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
@@ -185,6 +185,8 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch5 -p1
 
 %build
+mv -f aclocal.m4 acinclude.m4
+aclocal
 %{__autoconf}
 %configure \
 	--with-curses
