@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
 Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
 Version:	4.3
-Release:	6
+Release:	12
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/readline/%{name}-%{version}.tar.gz
@@ -25,6 +25,10 @@ Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-001
 Patch7:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-002
+Patch8:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-003
+Patch9:		ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-004
+Patch10:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}-patches/%{name}43-005
+Patch11:	%{name}-lfs.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -96,8 +100,8 @@ Summary(ru):	Файлы, необходимые для разработки программ, использующих библиотеку
 Summary(tr):	readline kitaplЩПЩnЩ kullanan programlar yazmak iГin gerekli dosyalar
 Summary(uk):	Файли, необх╕дн╕ для розробки програм, що використовують б╕бл╕отеку readline
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	ncurses-devel
+Requires:	%{name} = %{version}-%{release}
+Requires:	ncurses-devel >= 5.0
 
 %description devel
 The "readline" library will read a line from the terminal and return
@@ -163,7 +167,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a readline
 Summary(ru):	Статические библиотеки readline
 Summary(uk):	Статичн╕ б╕бл╕отеки readline
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of readline library.
@@ -193,8 +197,13 @@ Bibliotecas estАticas para desenvolvimento com readline.
 %patch5 -p1
 %patch6 -p0
 %patch7 -p0
+%patch8 -p0
+%patch9 -p0
+%patch10 -p0
+%patch11 -p0
 
 %build
+cp -f /usr/share/automake/config.sub support
 mv -f aclocal.m4 acinclude.m4
 %{__aclocal}
 %{__autoconf}
@@ -208,17 +217,22 @@ rm -f doc/*.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,lib}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},/%{_lib}}
 
-%{__make} install install-shared DESTDIR=$RPM_BUILD_ROOT
+%{__make} install install-shared \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /lib/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /lib/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+
+# help rpmdeps
+chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -234,7 +248,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/inputrc
-%attr(755,root,root) /lib/lib*.so.*.*
+%attr(755,root,root) /%{_lib}/lib*.so.*.*
 %{_infodir}/*info*
 
 %files devel

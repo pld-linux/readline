@@ -39,7 +39,7 @@ diff -Nur readline-4.2.orig/doc/rluserman.texinfo readline-4.2/doc/rluserman.tex
 +@dircategory Libraries:
  @direntry
 -* RLuserman: (rluserman).       The GNU readline library User's Manual.
-+* RLuserman: (rluserman).		The GNU readline library User's Manual.
++* RLuserman: (rluserman).		The GNU readline library User's Manual
  @end direntry
  
  This document describes the end user interface of the GNU Readline Library,
