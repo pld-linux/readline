@@ -29,6 +29,7 @@ Patch12:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-002
 Patch13:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-003
 Patch14:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-004
 Patch15:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-005
+URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
