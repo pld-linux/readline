@@ -37,6 +37,8 @@ BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		sonameversion	5.0
+
 %description
 The "readline" library will read a line from the terminal and return
 it, allowing the user to edit the line with the standard emacs editing
@@ -64,7 +66,7 @@ fácil de usar y más intuitiva.
 
 %description -l pl
 Biblioteka "readline" czyta liniê z terminala i zwraca j±, pozwalaj±c
-u¿ytkownikowi modyfikowaæ j± za pomoc± standardowych klawiszy
+u¿ytkownikowi edytowaæ j± za pomoc± standardowych klawiszy
 edycyjnych emacsa. Pozwala programi¶cie daæ u¿ytkownikowi ³atwy do
 u¿ycia i bardziej intuicyjny interfejs.
 
@@ -227,8 +229,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/libreadline.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/libhistory.so.%{sonameversion} $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 # help rpm to find deps
 chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
@@ -253,8 +255,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/readline
-%attr(755,root,root) %{_libdir}/libhistory.so
-%attr(755,root,root) %{_libdir}/libreadline.so
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man3/*
 
 %files static
