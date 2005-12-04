@@ -250,7 +250,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/inputrc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
 %attr(755,root,root) /%{_lib}/lib*.so.*.*
 %{_infodir}/*info*
 
