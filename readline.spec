@@ -10,12 +10,12 @@ Summary(ru):	Библиотека для чтения строк с терминала
 Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
 Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
 Name:		readline
-Version:	5.0
-Release:	5
+Version:	5.1
+Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
-# Source0-md5:	9a39d15f1ed592883f8c6671e8c13120
+Source0:	ftp://ftp.gnu.org/gnu/bash/%{name}-%{version}.tar.gz
+# Source0-md5:	7ee5a692db88b30ca48927a13fd60e46
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
 Patch1:		%{name}-shared.patch
@@ -24,13 +24,7 @@ Patch3:		%{name}-sys_inputrc.patch
 Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		%{name}-lfs.patch
-Patch7:		%{name}-read-e-segfault.patch
-Patch8:		%{name}-wrap.patch
-Patch11:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-001
-Patch12:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-002
-Patch13:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-003
-Patch14:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-004
-Patch15:	ftp://ftp.cwru.edu/pub/bash/readline-5.0-patches/readline50-005
+Patch7:		%{name}-wrap.patch
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -197,13 +191,7 @@ Bibliotecas estАticas para desenvolvimento com readline.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p0
-%patch11 -p0
-%patch12 -p0
-%patch13 -p0
-%patch14 -p0
-%patch15 -p0
 %patch7 -p1
-%patch8 -p1
 
 %build
 cp -f /usr/share/automake/config.sub support
