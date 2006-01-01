@@ -11,7 +11,7 @@ Summary(tr):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ŞÉÔÁÎÎÑ ÓÔÒ¦ŞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
 Version:	5.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/bash/%{name}-%{version}.tar.gz
@@ -25,6 +25,7 @@ Patch4:		%{name}-terminal.patch
 Patch5:		%{name}-header.patch
 Patch6:		%{name}-lfs.patch
 Patch7:		%{name}-wrap.patch
+Patch8:		http://ftp.gnu.org/gnu/readline/readline-5.1-patches/readline51-001
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -192,6 +193,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch5 -p1
 %patch6 -p0
 %patch7 -p1
+%patch8 -p0
 
 %build
 cp -f /usr/share/automake/config.sub support
