@@ -1,0 +1,36 @@
+--- configure.in~	2004-06-29 16:58:33.000000000 +0200
++++ configure.in	2004-12-19 13:53:21.521597432 +0100
+@@ -77,6 +77,7 @@
+ 
+ AC_TYPE_SIZE_T
+ AC_CHECK_TYPE(ssize_t, int)
++AC_SYS_LARGEFILE
+ 
+ AC_HEADER_STDC
+ 
+--- config.h.in	2003-02-03 22:49:38.000000000 +0100
++++ config.h.in	2004-12-19 14:13:09.913934336 +0100
+@@ -19,6 +19,12 @@
+ 
+ #undef ssize_t
+ 
++/* Number of bits in a file offset, on hosts where this is settable. */
++#undef _FILE_OFFSET_BITS
++
++/* Define for large files, on AIX-style hosts. */
++#undef _LARGE_FILES
++
+ #undef PROTOTYPES
+ 
+ #undef __CHAR_UNSIGNED__
+--- histfile.c~	2004-03-04 04:39:33.000000000 +0100
++++ histfile.c	2004-12-19 03:53:01.196199720 +0100
+@@ -424,7 +424,7 @@
+   char *output;
+   int file, mode, rv;
+ #ifdef HISTORY_USE_MMAP
+-  size_t cursize;
++  off_t cursize;
+ 
+   mode = overwrite ? O_RDWR|O_CREAT|O_TRUNC|O_BINARY : O_RDWR|O_APPEND|O_BINARY;
+ #else
