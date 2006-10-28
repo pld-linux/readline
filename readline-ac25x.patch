@@ -1,5 +1,5 @@
---- readline-5.0/aclocal.m4.orig	2004-05-13 19:37:25.000000000 +0200
-+++ readline-5.0/aclocal.m4	2004-08-05 01:18:12.809992936 +0200
+--- readline-5.2/aclocal.m4.orig	2006-09-12 23:18:07.000000000 +0200
++++ readline-5.2/aclocal.m4	2006-10-29 00:23:32.497147500 +0200
 @@ -4,7 +4,7 @@
  dnl Some derived from PDKSH 5.1.3 autoconf tests
  dnl
@@ -360,15 +360,6 @@
  [
  AC_MSG_CHECKING([for struct stat.st_blocks])
  AC_CACHE_VAL(bash_cv_struct_stat_st_blocks,
-@@ -933,7 +933,7 @@
- fi
- ])
- 
--AC_DEFUN(BASH_CHECK_LIB_TERMCAP,
-+AC_DEFUN([BASH_CHECK_LIB_TERMCAP],
- [
- if test "X$bash_cv_termcap_lib" = "X"; then
- _bash_needmsg=yes
 @@ -984,7 +984,7 @@
  dnl NOTE: IF WE FIND GETPEERNAME, WE ASSUME THAT WE HAVE BIND/CONNECT
  dnl	  AS WELL
@@ -539,8 +530,8 @@
 +AC_DEFUN([BASH_CHECK_DEV_FD],
  [AC_MSG_CHECKING(whether /dev/fd is available)
  AC_CACHE_VAL(bash_cv_dev_fd,
- [if test -d /dev/fd  && test -r /dev/fd/0 < /dev/null; then
-@@ -1558,7 +1558,7 @@
+ [bash_cv_dev_fd=""
+@@ -1569,7 +1569,7 @@
  fi
  ])
  
@@ -549,7 +540,7 @@
  [AC_MSG_CHECKING(whether /dev/stdin stdout stderr are available)
  AC_CACHE_VAL(bash_cv_dev_stdin,
  [if test -d /dev/fd && test -r /dev/stdin < /dev/null; then
-@@ -1578,7 +1578,7 @@
+@@ -1589,7 +1589,7 @@
  dnl
  dnl Check if HPUX needs _KERNEL defined for RLIMIT_* definitions
  dnl
@@ -558,7 +549,7 @@
  [AC_MSG_CHECKING([whether $host_os needs _KERNEL for RLIMIT defines])
  AC_CACHE_VAL(bash_cv_kernel_rlimit,
  [AC_TRY_COMPILE([
-@@ -1612,7 +1612,7 @@
+@@ -1623,7 +1623,7 @@
  dnl C does not allow duplicate case labels, so the compile will fail if
  dnl sizeof(off_t) is > 4.
  dnl
@@ -567,7 +558,7 @@
  [AC_CACHE_CHECK(for 64-bit off_t, bash_cv_off_t_64,
  AC_TRY_COMPILE([
  #ifdef HAVE_UNISTD_H
-@@ -1626,7 +1626,7 @@
+@@ -1637,7 +1637,7 @@
          AC_DEFINE(HAVE_OFF_T_64)
  fi])
  
@@ -576,25 +567,16 @@
  [AC_MSG_CHECKING(for unusable real-time signals due to large values)
  AC_CACHE_VAL(bash_cv_unusable_rtsigs,
  [AC_TRY_RUN([
-@@ -1660,7 +1660,7 @@
+@@ -1673,7 +1673,7 @@
  dnl
- dnl check for availability of multibyte characters and functions
+ dnl geez, I wish I didn't have to check for all of this stuff separately
  dnl
 -AC_DEFUN(BASH_CHECK_MULTIBYTE,
 +AC_DEFUN([BASH_CHECK_MULTIBYTE],
  [
  AC_CHECK_HEADERS(wctype.h)
  AC_CHECK_HEADERS(wchar.h)
-@@ -1700,7 +1700,7 @@
- dnl	AC_PROG_CC
- dnl	BASH_CHECK_LIB_TERMCAP
- 
--AC_DEFUN(RL_LIB_READLINE_VERSION,
-+AC_DEFUN([RL_LIB_READLINE_VERSION],
- [
- AC_REQUIRE([BASH_CHECK_LIB_TERMCAP])
- 
-@@ -1808,7 +1808,7 @@
+@@ -1863,7 +1863,7 @@
  fi
  ])
  
@@ -603,3 +585,12 @@
  [
  AC_MSG_CHECKING(whether the ctype macros accept non-ascii characters)
  AC_CACHE_VAL(bash_cv_func_ctype_nonascii,
+@@ -1907,7 +1907,7 @@
+ fi
+ ])
+ 
+-AC_DEFUN(BASH_CHECK_WCONTINUED,
++AC_DEFUN([BASH_CHECK_WCONTINUED],
+ [
+ AC_MSG_CHECKING(whether WCONTINUED flag to waitpid is unavailable or available but broken)
+ AC_CACHE_VAL(bash_cv_wcontinued_broken,
