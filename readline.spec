@@ -10,24 +10,20 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÞÔÅÎÉÑ ÓÔÒÏË Ó ÔÅÒÍÉÎÁÌÁ
 Summary(tr):	Terminalden satýr okumak için kullanýlan bir kitaplýk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÄÌÑ ÞÉÔÁÎÎÑ ÓÔÒ¦ÞÏË Ú ÔÅÒÍ¦ÎÁÌÕ
 Name:		readline
-Version:	5.1
-Release:	3
+Version:	5.2
+Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/bash/%{name}-%{version}.tar.gz
-# Source0-md5:	7ee5a692db88b30ca48927a13fd60e46
+Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
+# Source0-md5:	e39331f32ad14009b9ff49cc10c5e751
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
 Patch1:		%{name}-shared.patch
 Patch2:		%{name}-info.patch
-Patch3:		%{name}-sys_inputrc.patch
-Patch4:		%{name}-terminal.patch
-Patch5:		%{name}-header.patch
-Patch6:		%{name}-lfs.patch
-Patch7:		%{name}-wrap.patch
-Patch8:		http://ftp.gnu.org/gnu/readline/readline-5.1-patches/readline51-001
+Patch3:		%{name}-header.patch
+Patch4:		%{name}-lfs.patch
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	texinfo
@@ -189,11 +185,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p0
-%patch7 -p1
-%patch8 -p0
+%patch4 -p0
 
 %build
 cp -f /usr/share/automake/config.sub support
@@ -241,16 +233,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
-%attr(755,root,root) /%{_lib}/lib*.so.*.*
-%{_infodir}/*info*
+%attr(755,root,root) /%{_lib}/libhistory.so.*.*
+%attr(755,root,root) /%{_lib}/libreadline.so.*.*
+%{_infodir}/*.info*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/readline
 %attr(755,root,root) %{_libdir}/libhistory.so
 %attr(755,root,root) %{_libdir}/libreadline.so
+%{_includedir}/readline
 %{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libhistory.a
+%{_libdir}/libreadline.a
