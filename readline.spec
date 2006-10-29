@@ -213,11 +213,13 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib} ; echo libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 # help rpm to find deps
 chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
+
+rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 
 %clean
 rm -rf $RPM_BUILD_ROOT
