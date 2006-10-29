@@ -1,0 +1,34 @@
+--- readline-5.0/aclocal.m4.orig	2004-08-05 01:18:28.326634048 +0200
++++ readline-5.0/aclocal.m4	2004-08-05 01:19:41.097571184 +0200
+@@ -943,10 +943,10 @@
+ fi
+ AC_CACHE_VAL(bash_cv_termcap_lib,
+ [AC_CHECK_FUNC(tgetent, bash_cv_termcap_lib=libc,
+-  [AC_CHECK_LIB(termcap, tgetent, bash_cv_termcap_lib=libtermcap,
+-    [AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcap_lib=libtinfo,
+-        [AC_CHECK_LIB(curses, tgetent, bash_cv_termcap_lib=libcurses,
+-	    [AC_CHECK_LIB(ncurses, tgetent, bash_cv_termcap_lib=libncurses,
++  [AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcap_lib=libtinfo,
++    [AC_CHECK_LIB(curses, tgetent, bash_cv_termcap_lib=libcurses,
++      [AC_CHECK_LIB(ncurses, tgetent, bash_cv_termcap_lib=libncurses,
++	[AC_CHECK_LIB(termcap, tgetent, bash_cv_termcap_lib=libtermcap,
+ 	        bash_cv_termcap_lib=gnutermcap)])])])])])
+ if test "X$_bash_needmsg" = "Xyes"; then
+ AC_MSG_CHECKING(which library has the termcap functions)
+diff -urN readline-4.2.org/shlib/Makefile.in readline-4.2/shlib/Makefile.in
+--- readline-4.2.org/shlib/Makefile.in	Wed Apr 11 19:45:39 2001
++++ readline-4.2/shlib/Makefile.in	Wed Apr 11 19:52:49 2001
+@@ -141,11 +141,11 @@
+ 
+ $(SHARED_READLINE):	$(SHARED_OBJ)
+ 	$(RM) $@
+-	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_OBJ) $(SHLIB_LIBS)
++	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_OBJ) -lc $(TERMCAP_LIB) $(SHLIB_LIBS)
+ 
+ $(SHARED_HISTORY):	$(SHARED_HISTOBJ) xmalloc.so
+ 	$(RM) $@
+-	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so $(SHLIB_LIBS)
++	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so -lc $(SHLIB_LIBS)
+ 
+ installdirs: $(topdir)/support/mkdirs
+ 	-$(SHELL) $(topdir)/support/mkdirs $(libdir)
