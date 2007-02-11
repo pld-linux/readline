@@ -3,6 +3,7 @@ Summary(de):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es):	Biblioteca para lectura de líneas de un terminal
 Summary(fr):	Bibliothéque pour lire des lignes depuis un terminal
 Summary(ja):	readline ¥é¥¤¥Ö¥é¥ê
+Summary(ko):	ÅÍ¹Ì³Î¿¡¼­ ÇÑÁÙ¾¿ ÀĞÀ»¶§ »ç¿ëÇÏ´Â ¶óÀÌºê·¯¸®
 Summary(pl):	Biblioteki do czytania linii z terminala
 Summary(pt_BR):	Biblioteca para leitura de linhas de um terminal
 Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ŞÔÅÎÉÑ ÓÔÒÏË Ó ÔÅÒÍÉÎÁÌÁ
