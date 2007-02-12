@@ -1,14 +1,14 @@
 Summary:	Library for reading lines from a terminal
-Summary(de.UTF-8):   Library zum Lesen von Zeilen von einem Terminal
-Summary(es.UTF-8):   Biblioteca para lectura de líneas de un terminal
-Summary(fr.UTF-8):   Bibliothéque pour lire des lignes depuis un terminal
-Summary(ja.UTF-8):   readline ライブラリ
-Summary(ko.UTF-8):   터미널에서 한줄씩 읽을때 사용하는 라이브러리
-Summary(pl.UTF-8):   Biblioteki do czytania linii z terminala
-Summary(pt_BR.UTF-8):   Biblioteca para leitura de linhas de um terminal
-Summary(ru.UTF-8):   Библиотека для чтения строк с терминала
-Summary(tr.UTF-8):   Terminalden satır okumak için kullanılan bir kitaplık
-Summary(uk.UTF-8):   Бібліотека для читання стрічок з терміналу
+Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
+Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
+Summary(fr.UTF-8):	Bibliothéque pour lire des lignes depuis un terminal
+Summary(ja.UTF-8):	readline ライブラリ
+Summary(ko.UTF-8):	터미널에서 한줄씩 읽을때 사용하는 라이브러리
+Summary(pl.UTF-8):	Biblioteki do czytania linii z terminala
+Summary(pt_BR.UTF-8):	Biblioteca para leitura de linhas de um terminal
+Summary(ru.UTF-8):	Библиотека для чтения строк с терминала
+Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
+Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	5.2
 Release:	1
@@ -81,16 +81,16 @@ fácil de usar e mais intuitiva.
 
 %package devel
 Summary:	file for developing programs that use the readline library
-Summary(de.UTF-8):   Datei zum Entwickeln von Programmen mit der readline-Library
-Summary(es.UTF-8):   Archivo para desarrollar programas que utilicen la biblioteca para lectura de líneas
-Summary(fr.UTF-8):   Fichier pour développer des programmes utilisant la readline
-Summary(ja.UTF-8):   readline ライブラリを使うプログラムための開発用ライブラリ
-Summary(ko.UTF-8):   readline 라이브러리를 사용하는 프로그램을 만들때 사용하는 파일들
-Summary(pl.UTF-8):   Pakiet dla programistów używających bibliotek readline
-Summary(pt_BR.UTF-8):   Arquivo para desenvolver programas que utilizam a readline
-Summary(ru.UTF-8):   Файлы, необходимые для разработки программ, использующих библиотеку readline
-Summary(tr.UTF-8):   readline kitaplığını kullanan programlar yazmak için gerekli dosyalar
-Summary(uk.UTF-8):   Файли, необхідні для розробки програм, що використовують бібліотеку readline
+Summary(de.UTF-8):	Datei zum Entwickeln von Programmen mit der readline-Library
+Summary(es.UTF-8):	Archivo para desarrollar programas que utilicen la biblioteca para lectura de líneas
+Summary(fr.UTF-8):	Fichier pour développer des programmes utilisant la readline
+Summary(ja.UTF-8):	readline ライブラリを使うプログラムための開発用ライブラリ
+Summary(ko.UTF-8):	readline 라이브러리를 사용하는 프로그램을 만들때 사용하는 파일들
+Summary(pl.UTF-8):	Pakiet dla programistów używających bibliotek readline
+Summary(pt_BR.UTF-8):	Arquivo para desenvolver programas que utilizam a readline
+Summary(ru.UTF-8):	Файлы, необходимые для разработки программ, использующих библиотеку readline
+Summary(tr.UTF-8):	readline kitaplığını kullanan programlar yazmak için gerekli dosyalar
+Summary(uk.UTF-8):	Файли, необхідні для розробки програм, що використовують бібліотеку readline
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ncurses-devel >= 5.0
@@ -153,11 +153,11 @@ malloc(3), поэтому вызывающая программа должна �
 
 %package static
 Summary:	Static readline library
-Summary(es.UTF-8):   Static libraries for readline development
-Summary(pl.UTF-8):   Biblioteka statyczna readline
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com a readline
-Summary(ru.UTF-8):   Статические библиотеки readline
-Summary(uk.UTF-8):   Статичні бібліотеки readline
+Summary(es.UTF-8):	Static libraries for readline development
+Summary(pl.UTF-8):	Biblioteka statyczna readline
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com a readline
+Summary(ru.UTF-8):	Статические библиотеки readline
+Summary(uk.UTF-8):	Статичні бібліотеки readline
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
