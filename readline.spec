@@ -1,14 +1,14 @@
 Summary:	Library for reading lines from a terminal
-Summary(de):	Library zum Lesen von Zeilen von einem Terminal
-Summary(es):	Biblioteca para lectura de lМneas de un terminal
-Summary(fr):	BibliothИque pour lire des lignes depuis un terminal
-Summary(ja):	readline ╔И╔╓╔ж╔И╔Й
-Summary(ko):	ем╧лЁн©║╪╜ гяаы╬© юпю╩╤╖ ╩Г©Кго╢б ╤Сюл╨Й╥╞╦╝
-Summary(pl):	Biblioteki do czytania linii z terminala
-Summary(pt_BR):	Biblioteca para leitura de linhas de um terminal
-Summary(ru):	Библиотека для чтения строк с терминала
-Summary(tr):	Terminalden satЩr okumak iГin kullanЩlan bir kitaplЩk
-Summary(uk):	Б╕бл╕отека для читання стр╕чок з терм╕налу
+Summary(de.UTF-8):   Library zum Lesen von Zeilen von einem Terminal
+Summary(es.UTF-8):   Biblioteca para lectura de lц╜neas de un terminal
+Summary(fr.UTF-8):   Bibliothц╘que pour lire des lignes depuis un terminal
+Summary(ja.UTF-8):   readline Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙
+Summary(ko.UTF-8):   М└╟К╞╦К└░Л≈░Л└° М∙°Л╓└Л■╘ Л²╫Л²└К∙▄ Л┌╛Л ╘М∙≤К┼■ К²╪Л²╢К╦▄К÷╛К╕╛
+Summary(pl.UTF-8):   Biblioteki do czytania linii z terminala
+Summary(pt_BR.UTF-8):   Biblioteca para leitura de linhas de um terminal
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ п╢п╩я▐ я┤я┌п╣п╫п╦я▐ я│я┌я─п╬п╨ я│ я┌п╣я─п╪п╦п╫п╟п╩п╟
+Summary(tr.UTF-8):   Terminalden satд╠r okumak iц╖in kullanд╠lan bir kitaplд╠k
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ п╢п╩я▐ я┤п╦я┌п╟п╫п╫я▐ я│я┌я─я√я┤п╬п╨ п╥ я┌п╣я─п╪я√п╫п╟п╩я┐
 Name:		readline
 Version:	5.2
 Release:	1
@@ -36,61 +36,61 @@ it, allowing the user to edit the line with the standard emacs editing
 keys. It allows the programmer to give the user an easier-to-use and
 more intuitive interface.
 
-%description -l de
+%description -l de.UTF-8
 Die "readline"-Library liest eine Zeile von einem Terminal ein, und
-gibt sie zurЭck, so daъ ein User die Zeile mit den normalen
-emacs-Editiertasten Дndern kann. Sie erlaubt einem Programmierer, dem
+gibt sie zurц╪ck, so daц÷ ein User die Zeile mit den normalen
+emacs-Editiertasten ц╓ndern kann. Sie erlaubt einem Programmierer, dem
 User ein einfacher zu benutzendes und intuitiveres Interface zu
 schreiben.
 
-%description -l es
-La biblioteca "readline" leerА una lМnea del terminal y la recuperarА,
-permitiendo al usuario editar la lМnea con las teclas de ediciСn
-padrСn emacs. Permite al programador dar al usuario una interface mАs
-fАcil de usar y mАs intuitiva.
+%description -l es.UTF-8
+La biblioteca "readline" leerц║ una lц╜nea del terminal y la recuperarц║,
+permitiendo al usuario editar la lц╜nea con las teclas de ediciцЁn
+padrцЁn emacs. Permite al programador dar al usuario una interface mц║s
+fц║cil de usar y mц║s intuitiva.
 
-%description -l ja
-"readline" ╔И╔╓╔ж╔И╔Й╓Рмя╓╓╓К╓х║╒ц╪кЖ╓╚╓Ифи╓ъ╓Ё╓С╓ю╟Л╧т╓Р║╒emacs
-╓ни╦╫Ю╔╜║╪
-╓хф╠╔╜║╪╔п╔╓╔С╔г╔ё╔С╔╟╓гйт╫╦╓г╓╜╓К╓Х╓╕╓к╓й╓Й╓ч╓╧║ё╓Ё╓Л╓Р╔в╔М╔╟╔И╔ЮцФ╓г╩х╓╕╓х║╒
-╓Х╓Й╩х╓╓╓Д╓╧╓╓╔╓╔С╔©╔у╔╖║╪╔╧╓Р╔Ф║╪╔╤╓кдС╤║╓г╓╜╓ч╓╧║ё
+%description -l ja.UTF-8
+"readline" Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙Ц┌▓Г■╗Ц│└Ц┌▀Ц│╗Ц─│Г╚╞Ф°╚Ц│▀Ц┌┴Х╙╜Ц│©Ц│⌠Ц┌⌠Ц│═Д╦─Х║▄Ц┌▓Ц─│emacs
+Ц│╝Ф╗≥Ф╨√Ц┌╜Ц┐╪
+Ц│╗Е░▄Ц┌╜Ц┐╪Ц┐░Ц┌╓Ц┐ЁЦ┐┤Ц┌ёЦ┐ЁЦ┌╟Ц│╖Г╥╗И⌡├Ц│╖Ц│█Ц┌▀Ц┌┬Ц│├Ц│╚Ц│╙Ц┌┼Ц│╬Ц│≥Ц─┌Ц│⌠Ц┌▄Ц┌▓Ц┐≈Ц┐╜Ц┌╟Ц┐╘Ц┐═Д╦╜Ц│╖Д╫©Ц│├Ц│╗Ц─│
+Ц┌┬Ц┌┼Д╫©Ц│└Ц┌└Ц│≥Ц│└Ц┌╓Ц┐ЁЦ┌©Ц┐∙Ц┌╖Ц┐╪Ц┌╧Ц┌▓Ц┐╕Ц┐╪Ц┌╤Ц│╚Ф▐░Д╬⌡Ц│╖Ц│█Ц│╬Ц│≥Ц─┌
 
-%description -l pl
-Biblioteka "readline" czyta liniЙ z terminala i zwraca j╠, pozwalaj╠c
-u©ytkownikowi modyfikowaФ j╠ za pomoc╠ standardowych klawiszy
-edycyjnych emacsa. Pozwala programi╤cie daФ u©ytkownikowi Ёatwy do
-u©ycia i bardziej intuicyjny interfejs.
+%description -l pl.UTF-8
+Biblioteka "readline" czyta liniд≥ z terminala i zwraca jд┘, pozwalajд┘c
+uе╪ytkownikowi modyfikowaд┤ jд┘ za pomocд┘ standardowych klawiszy
+edycyjnych emacsa. Pozwala programiе⌡cie daд┤ uе╪ytkownikowi е┌atwy do
+uе╪ycia i bardziej intuicyjny interfejs.
 
-%description -l pt_BR
-A biblioteca "readline" lerА uma linha do terminal e irА retornА-la,
-permitindo ao usuАrio editar a linha com as teclas de ediГЦo padrЦo
-emacs. Ele permite ao programador dar ao usuАrio uma interface mais
-fАcil de usar e mais intuitiva.
+%description -l pt_BR.UTF-8
+A biblioteca "readline" lerц║ uma linha do terminal e irц║ retornц║-la,
+permitindo ao usuц║rio editar a linha com as teclas de ediц╖цёo padrцёo
+emacs. Ele permite ao programador dar ao usuц║rio uma interface mais
+fц║cil de usar e mais intuitiva.
 
-%description -l ru
-Библиотека "readline" читает строку с терминала и возвращает ее,
-позволяя пользователю редактировать строку при помощи стандартных
-клавиш emacs. Позволяет программисту предоставить пользователю более
-простой и интуитивный интерфейс. Правильно работает с locale.
+%description -l ru.UTF-8
+п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ "readline" я┤п╦я┌п╟п╣я┌ я│я┌я─п╬п╨я┐ я│ я┌п╣я─п╪п╦п╫п╟п╩п╟ п╦ п╡п╬п╥п╡я─п╟я┴п╟п╣я┌ п╣п╣,
+п©п╬п╥п╡п╬п╩я▐я▐ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▌ я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟я┌я▄ я│я┌я─п╬п╨я┐ п©я─п╦ п©п╬п╪п╬я┴п╦ я│я┌п╟п╫п╢п╟я─я┌п╫я▀я┘
+п╨п╩п╟п╡п╦я┬ emacs. п÷п╬п╥п╡п╬п╩я▐п╣я┌ п©я─п╬пЁя─п╟п╪п╪п╦я│я┌я┐ п©я─п╣п╢п╬я│я┌п╟п╡п╦я┌я▄ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▌ п╠п╬п╩п╣п╣
+п©я─п╬я│я┌п╬п╧ п╦ п╦п╫я┌я┐п╦я┌п╦п╡п╫я▀п╧ п╦п╫я┌п╣я─я└п╣п╧я│. п÷я─п╟п╡п╦п╩я▄п╫п╬ я─п╟п╠п╬я┌п╟п╣я┌ я│ locale.
 
-%description -l uk
-Б╕бл╕отека "readline" чита╓ стр╕чку з терм╕нала ╕ поверта╓ ╖╖,
-дозволяючи користувачу редагувати стр╕чку за допомогою стандартних
-клав╕ш emacs. Дозволя╓ програм╕сту забезпечити б╕льш простий та
-╕нту╕тивний ╕нтерфейс користувача. Правильно працю╓ з locale.
+%description -l uk.UTF-8
+п▒я√п╠п╩я√п╬я┌п╣п╨п╟ "readline" я┤п╦я┌п╟я■ я│я┌я─я√я┤п╨я┐ п╥ я┌п╣я─п╪я√п╫п╟п╩п╟ я√ п©п╬п╡п╣я─я┌п╟я■ я≈я≈,
+п╢п╬п╥п╡п╬п╩я▐я▌я┤п╦ п╨п╬я─п╦я│я┌я┐п╡п╟я┤я┐ я─п╣п╢п╟пЁя┐п╡п╟я┌п╦ я│я┌я─я√я┤п╨я┐ п╥п╟ п╢п╬п©п╬п╪п╬пЁп╬я▌ я│я┌п╟п╫п╢п╟я─я┌п╫п╦я┘
+п╨п╩п╟п╡я√я┬ emacs. п■п╬п╥п╡п╬п╩я▐я■ п©я─п╬пЁя─п╟п╪я√я│я┌я┐ п╥п╟п╠п╣п╥п©п╣я┤п╦я┌п╦ п╠я√п╩я▄я┬ п©я─п╬я│я┌п╦п╧ я┌п╟
+я√п╫я┌я┐я√я┌п╦п╡п╫п╦п╧ я√п╫я┌п╣я─я└п╣п╧я│ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟. п÷я─п╟п╡п╦п╩я▄п╫п╬ п©я─п╟я├я▌я■ п╥ locale.
 
 %package devel
 Summary:	file for developing programs that use the readline library
-Summary(de):	Datei zum Entwickeln von Programmen mit der readline-Library
-Summary(es):	Archivo para desarrollar programas que utilicen la biblioteca para lectura de lМneas
-Summary(fr):	Fichier pour dИvelopper des programmes utilisant la readline
-Summary(ja):	readline ╔И╔╓╔ж╔И╔Й╓Р╩х╓╕╔в╔М╔╟╔И╔Ю╓©╓А╓нЁ╚х╞мя╔И╔╓╔ж╔И╔Й
-Summary(ko):	readline ╤Сюл╨Й╥╞╦╝╦╕ ╩Г©Кго╢б га╥н╠в╥╔ю╩ ╦╦╣И╤╖ ╩Г©Кго╢б фдюо╣И
-Summary(pl):	Pakiet dla programistСw u©ywaj╠cych bibliotek readline
-Summary(pt_BR):	Arquivo para desenvolver programas que utilizam a readline
-Summary(ru):	Файлы, необходимые для разработки программ, использующих библиотеку readline
-Summary(tr):	readline kitaplЩПЩnЩ kullanan programlar yazmak iГin gerekli dosyalar
-Summary(uk):	Файли, необх╕дн╕ для розробки програм, що використовують б╕бл╕отеку readline
+Summary(de.UTF-8):   Datei zum Entwickeln von Programmen mit der readline-Library
+Summary(es.UTF-8):   Archivo para desarrollar programas que utilicen la biblioteca para lectura de lц╜neas
+Summary(fr.UTF-8):   Fichier pour dц╘velopper des programmes utilisant la readline
+Summary(ja.UTF-8):   readline Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙Ц┌▓Д╫©Ц│├Ц┐≈Ц┐╜Ц┌╟Ц┐╘Ц┐═Ц│÷Ц┌│Ц│╝И√▀Г≥╨Г■╗Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙
+Summary(ko.UTF-8):   readline К²╪Л²╢К╦▄К÷╛К╕╛К╔╪ Л┌╛Л ╘М∙≤К┼■ М■└К║°Й╥╦К·╗Л²└ К╖▄К⌠╓К∙▄ Л┌╛Л ╘М∙≤К┼■ М▄▄Л²╪К⌠╓
+Summary(pl.UTF-8):   Pakiet dla programistцЁw uе╪ywajд┘cych bibliotek readline
+Summary(pt_BR.UTF-8):   Arquivo para desenvolver programas que utilizam a readline
+Summary(ru.UTF-8):   п╓п╟п╧п╩я▀, п╫п╣п╬п╠я┘п╬п╢п╦п╪я▀п╣ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪, п╦я│п©п╬п╩я▄п╥я┐я▌я┴п╦я┘ п╠п╦п╠п╩п╦п╬я┌п╣п╨я┐ readline
+Summary(tr.UTF-8):   readline kitaplд╠д÷д╠nд╠ kullanan programlar yazmak iц╖in gerekli dosyalar
+Summary(uk.UTF-8):   п╓п╟п╧п╩п╦, п╫п╣п╬п╠я┘я√п╢п╫я√ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪, я┴п╬ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐я▌я┌я▄ п╠я√п╠п╩я√п╬я┌п╣п╨я┐ readline
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ncurses-devel >= 5.0
@@ -102,82 +102,82 @@ The line returned is allocated with malloc(3), so the caller must free
 it when finished. The line returned has the final newline removed, so
 only the text of the line remains.
 
-%description devel -l de
+%description devel -l de.UTF-8
 Die "readline"-Library liest eine Zeile vom Terminal ein und gibt sie
-zurЭck. Die zurЭckgegebene Zeile hat kein newline am Ende, so daъ nur
+zurц╪ck. Die zurц╪ckgegebene Zeile hat kein newline am Ende, so daц÷ nur
 der Text der Zeile bleibt.
 
-%description devel -l es
-La biblioteca readline leerА una lМnea del terminal y la recuperarА,
-usando prompt como prompt. Si prompt es nulo, ningЗn prompt se enseЯa.
-La lМnea recuperada es alocada con malloc(3), debiendo el llamador
-liberarla cuando terminar. La lМnea recuperada tiene el salto de lМnea
-final quitado, de esta forma solamente el texto de la lМnea se pone a
-disposiciСn.
+%description devel -l es.UTF-8
+La biblioteca readline leerц║ una lц╜nea del terminal y la recuperarц║,
+usando prompt como prompt. Si prompt es nulo, ningц╨n prompt se enseц╠a.
+La lц╜nea recuperada es alocada con malloc(3), debiendo el llamador
+liberarla cuando terminar. La lц╜nea recuperada tiene el salto de lц╜nea
+final quitado, de esta forma solamente el texto de la lц╜nea se pone a
+disposiciцЁn.
 
-%description -l ja
+%description -l ja.UTF-8
 "readline"
-╔И╔╓╔ж╔И╔Й╓оц╪кЖ╓╚╓И╟Л╧тфи╓Ю╓х║╒╔в╔М╔С╔в╔х╓х╓х╓Б╓к╓╫╓Л╓Рйж╓╥
-╓ч╓╧║ёйж╓Йцм╓х╓й╓К╧т╓о malloc ╓гЁД╓ЙеЖ╓ф╓И╓Л║╒╫╙н╩╩Ч╓к╓о╓╫╓н╔А╔Б╔Й╓о
-Ё╚йЭ╓╥╓й╓╓╓х╓╓╓╠╓ч╓╩╓С║ё
+Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙Ц│╞Г╚╞Ф°╚Ц│▀Ц┌┴Д╦─Х║▄Х╙╜Ц┌─Ц│╗Ц─│Ц┐≈Ц┐╜Ц┐ЁЦ┐≈Ц┐┬Ц│╗Ц│╗Ц┌┌Ц│╚Ц│²Ц┌▄Ц┌▓Х©■Ц│≈
+Ц│╬Ц│≥Ц─┌Х©■Ц┌┼Е─╓Ц│╗Ц│╙Ц┌▀Х║▄Ц│╞ malloc Ц│╖Е┴╡Ц┌┼Е╫⌠Ц│╕Ц┌┴Ц┌▄Ц─│Г╣┌Д╨├Ф≥┌Ц│╚Ц│╞Ц│²Ц│╝Ц┐║Ц┐╒Ц┐╙Ц│╞
+И√▀Ф■╬Ц│≈Ц│╙Ц│└Ц│╗Ц│└Ц│▒Ц│╬Ц│⌡Ц┌⌠Ц─┌
 
-%description devel -l pl
-Biblioteka "readline" czyta liniЙ z terminala i zwracaj╠ j╠, u©ywaj╠c
-znaku zachЙty (prompt) jako podpowiedzi. Je©eli prompt jest zerem, nie
-jest wy╤wietlany. Linia zwracana jest allokowana przez malloc(3).
+%description devel -l pl.UTF-8
+Biblioteka "readline" czyta liniд≥ z terminala i zwracajд┘ jд┘, uе╪ywajд┘c
+znaku zachд≥ty (prompt) jako podpowiedzi. Jeе╪eli prompt jest zerem, nie
+jest wyе⌡wietlany. Linia zwracana jest allokowana przez malloc(3).
 
-%description devel -l pt_BR
-A biblioteca readline lerА uma linha do terminal e a retornarА, usando
-prompt como prompt. Se prompt И nulo, nenhum prompt И mostrado. A
-linha retornada И alocada com malloc(3), devendo o chamador liberА-la
+%description devel -l pt_BR.UTF-8
+A biblioteca readline lerц║ uma linha do terminal e a retornarц║, usando
+prompt como prompt. Se prompt ц╘ nulo, nenhum prompt ц╘ mostrado. A
+linha retornada ц╘ alocada com malloc(3), devendo o chamador liberц║-la
 quando terminar. A linha retornada tem o salto de linha final
-removido, desta forma somente o texto da linha И disponibilizado.
+removido, desta forma somente o texto da linha ц╘ disponibilizado.
 
-%description devel -l ru
-Библиотека "readline" читает строку с терминала и возвращает ее,
-предваряя заданным системным приглашением (prompt). Если эта подсказка
-представляет собой пустую строку, на экран не выдается никакой
-подсказки. Возвращаемая строка занимает память, выделенную функцией
-malloc(3), поэтому вызывающая программа должна освободить эту память
-до своего завершения. Возвращаемая строка не содержит заключительного
-перевода строки, т.е. возвращается только текст строки.
+%description devel -l ru.UTF-8
+п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ "readline" я┤п╦я┌п╟п╣я┌ я│я┌я─п╬п╨я┐ я│ я┌п╣я─п╪п╦п╫п╟п╩п╟ п╦ п╡п╬п╥п╡я─п╟я┴п╟п╣я┌ п╣п╣,
+п©я─п╣п╢п╡п╟я─я▐я▐ п╥п╟п╢п╟п╫п╫я▀п╪ я│п╦я│я┌п╣п╪п╫я▀п╪ п©я─п╦пЁп╩п╟я┬п╣п╫п╦п╣п╪ (prompt). п∙я│п╩п╦ я█я┌п╟ п©п╬п╢я│п╨п╟п╥п╨п╟
+п©я─п╣п╢я│я┌п╟п╡п╩я▐п╣я┌ я│п╬п╠п╬п╧ п©я┐я│я┌я┐я▌ я│я┌я─п╬п╨я┐, п╫п╟ я█п╨я─п╟п╫ п╫п╣ п╡я▀п╢п╟п╣я┌я│я▐ п╫п╦п╨п╟п╨п╬п╧
+п©п╬п╢я│п╨п╟п╥п╨п╦. п▓п╬п╥п╡я─п╟я┴п╟п╣п╪п╟я▐ я│я┌я─п╬п╨п╟ п╥п╟п╫п╦п╪п╟п╣я┌ п©п╟п╪я▐я┌я▄, п╡я▀п╢п╣п╩п╣п╫п╫я┐я▌ я└я┐п╫п╨я├п╦п╣п╧
+malloc(3), п©п╬я█я┌п╬п╪я┐ п╡я▀п╥я▀п╡п╟я▌я┴п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟ п╢п╬п╩п╤п╫п╟ п╬я│п╡п╬п╠п╬п╢п╦я┌я▄ я█я┌я┐ п©п╟п╪я▐я┌я▄
+п╢п╬ я│п╡п╬п╣пЁп╬ п╥п╟п╡п╣я─я┬п╣п╫п╦я▐. п▓п╬п╥п╡я─п╟я┴п╟п╣п╪п╟я▐ я│я┌я─п╬п╨п╟ п╫п╣ я│п╬п╢п╣я─п╤п╦я┌ п╥п╟п╨п╩я▌я┤п╦я┌п╣п╩я▄п╫п╬пЁп╬
+п©п╣я─п╣п╡п╬п╢п╟ я│я┌я─п╬п╨п╦, я┌.п╣. п╡п╬п╥п╡я─п╟я┴п╟п╣я┌я│я▐ я┌п╬п╩я▄п╨п╬ я┌п╣п╨я│я┌ я│я┌я─п╬п╨п╦.
 
-%description devel -l uk
-Б╕бл╕отека "readline" чита╓ стр╕чку з терм╕нала ╕ поверта╓ ╖╖,
-добавляючи на початку задане системне запрошення (prompt). Якщо це
-запрошення явля╓ собою порожню стр╕чку, н╕яко╖ п╕дказки на екран не
-вида╓ться. Стр╕чка, що поверта╓ться б╕бл╕отекою, займа╓ пам'ять,
-вид╕лену функц╕╓ю malloc(3), так що програма ма╓ зв╕льнити цю пам'ять
-до свого завершення. Стр╕чка НЕ м╕стить заключного переводу стр╕чки,
-т.ч. поверта╓ться т╕льки текст стр╕чки.
+%description devel -l uk.UTF-8
+п▒я√п╠п╩я√п╬я┌п╣п╨п╟ "readline" я┤п╦я┌п╟я■ я│я┌я─я√я┤п╨я┐ п╥ я┌п╣я─п╪я√п╫п╟п╩п╟ я√ п©п╬п╡п╣я─я┌п╟я■ я≈я≈,
+п╢п╬п╠п╟п╡п╩я▐я▌я┤п╦ п╫п╟ п©п╬я┤п╟я┌п╨я┐ п╥п╟п╢п╟п╫п╣ я│п╦я│я┌п╣п╪п╫п╣ п╥п╟п©я─п╬я┬п╣п╫п╫я▐ (prompt). п╞п╨я┴п╬ я├п╣
+п╥п╟п©я─п╬я┬п╣п╫п╫я▐ я▐п╡п╩я▐я■ я│п╬п╠п╬я▌ п©п╬я─п╬п╤п╫я▌ я│я┌я─я√я┤п╨я┐, п╫я√я▐п╨п╬я≈ п©я√п╢п╨п╟п╥п╨п╦ п╫п╟ п╣п╨я─п╟п╫ п╫п╣
+п╡п╦п╢п╟я■я┌я▄я│я▐. п║я┌я─я√я┤п╨п╟, я┴п╬ п©п╬п╡п╣я─я┌п╟я■я┌я▄я│я▐ п╠я√п╠п╩я√п╬я┌п╣п╨п╬я▌, п╥п╟п╧п╪п╟я■ п©п╟п╪'я▐я┌я▄,
+п╡п╦п╢я√п╩п╣п╫я┐ я└я┐п╫п╨я├я√я■я▌ malloc(3), я┌п╟п╨ я┴п╬ п©я─п╬пЁя─п╟п╪п╟ п╪п╟я■ п╥п╡я√п╩я▄п╫п╦я┌п╦ я├я▌ п©п╟п╪'я▐я┌я▄
+п╢п╬ я│п╡п╬пЁп╬ п╥п╟п╡п╣я─я┬п╣п╫п╫я▐. п║я┌я─я√я┤п╨п╟ п²п∙ п╪я√я│я┌п╦я┌я▄ п╥п╟п╨п╩я▌я┤п╫п╬пЁп╬ п©п╣я─п╣п╡п╬п╢я┐ я│я┌я─я√я┤п╨п╦,
+я┌.я┤. п©п╬п╡п╣я─я┌п╟я■я┌я▄я│я▐ я┌я√п╩я▄п╨п╦ я┌п╣п╨я│я┌ я│я┌я─я√я┤п╨п╦.
 
 %package static
 Summary:	Static readline library
-Summary(es):	Static libraries for readline development
-Summary(pl):	Biblioteka statyczna readline
-Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a readline
-Summary(ru):	Статические библиотеки readline
-Summary(uk):	Статичн╕ б╕бл╕отеки readline
+Summary(es.UTF-8):   Static libraries for readline development
+Summary(pl.UTF-8):   Biblioteka statyczna readline
+Summary(pt_BR.UTF-8):   Bibliotecas estц║ticas para desenvolvimento com a readline
+Summary(ru.UTF-8):   п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ readline
+Summary(uk.UTF-8):   п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ readline
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of readline library.
 
-%description static -l es
+%description static -l es.UTF-8
 Static libraries for readline development.
 
-%description static -l pl
-Pakiet ten zawiera wersjЙ statyczn╠ biblioteki readline.
+%description static -l pl.UTF-8
+Pakiet ten zawiera wersjд≥ statycznд┘ biblioteki readline.
 
-%description static -l pt_BR
-Bibliotecas estАticas para desenvolvimento com readline.
+%description static -l pt_BR.UTF-8
+Bibliotecas estц║ticas para desenvolvimento com readline.
 
-%description static -l ru
-Это статические библиотеки readline.
+%description static -l ru.UTF-8
+п╜я┌п╬ я│я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ readline.
 
-%description static -l uk
-Це статичн╕ б╕бл╕отеки readline.
+%description static -l uk.UTF-8
+п╕п╣ я│я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ readline.
 
 %prep
 %setup -q
