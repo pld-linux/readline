@@ -14,7 +14,7 @@ Version:	5.2
 Release:	2
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
 # Source0-md5:	e39331f32ad14009b9ff49cc10c5e751
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-ac25x.patch
