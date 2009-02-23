@@ -10,18 +10,17 @@ Summary(ru.UTF-8):	Библиотека для чтения строк с тер
 Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
-Version:	5.2
-Release:	2
+Version:	6.0
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
-# Source0-md5:	e39331f32ad14009b9ff49cc10c5e751
+# Source0-md5:	b7f65a48add447693be6e86f04a63019
 Source1:	%{name}-sys_inputrc
-Patch0:		%{name}-ac25x.patch
-Patch1:		%{name}-shared.patch
-Patch2:		%{name}-info.patch
-Patch3:		%{name}-header.patch
-Patch4:		%{name}-lfs.patch
+Patch0:		%{name}-shared.patch
+Patch1:		%{name}-info.patch
+Patch2:		%{name}-header.patch
+Patch3:		%{name}-lfs.patch
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -184,8 +183,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p0
+%patch3 -p0
 
 %build
 cp -f /usr/share/automake/config.sub support
