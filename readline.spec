@@ -12,7 +12,7 @@ Summary(uk.UTF-8):	Бібліотека для читання стрічок з 
 Name:		readline
 Version:	6.0
 Release:	1
-License:	GPL
+License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
 # Source0-md5:	b7f65a48add447693be6e86f04a63019
