@@ -1,5 +1,5 @@
 %define	ver			6.0
-%define	patchlevel	004
+%define	patchlevel	4
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
