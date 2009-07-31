@@ -1,3 +1,5 @@
+%define	ver			6.0
+%define	patchlevel	004
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -10,17 +12,18 @@ Summary(ru.UTF-8):	Библиотека для чтения строк с тер
 Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
-Version:	6.0
+Version:	%{ver}.%{patchlevel}
 Release:	1
 License:	GPL v3+
 Group:		Libraries
-Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
 # Source0-md5:	b7f65a48add447693be6e86f04a63019
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
+%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.0-patches/readline60-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -179,7 +182,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 Це статичні бібліотеки readline.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{ver}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
