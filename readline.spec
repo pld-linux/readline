@@ -212,10 +212,10 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*old
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.* $RPM_BUILD_ROOT/%{_lib}
 
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 # help rpm to find deps
 chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
@@ -237,15 +237,20 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
 %attr(755,root,root) /%{_lib}/libhistory.so.*.*
+%attr(755,root,root) %ghost /%{_lib}/libhistory.so.6
 %attr(755,root,root) /%{_lib}/libreadline.so.*.*
-%{_infodir}/*.info*
+%attr(755,root,root) %ghost /%{_lib}/libreadline.so.6
+%{_infodir}/history.info*
+%{_infodir}/readline.info*
+%{_infodir}/rluserman.info*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libhistory.so
 %attr(755,root,root) %{_libdir}/libreadline.so
 %{_includedir}/readline
-%{_mandir}/man3/*
+%{_mandir}/man3/history.3*
+%{_mandir}/man3/readline.3*
 
 %files static
 %defattr(644,root,root,755)
