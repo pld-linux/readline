@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}.%{patchlevel}
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
@@ -23,6 +23,7 @@ Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
+Patch4:		%{name}-tinfo.patch
 %patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.0-patches/readline60-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
@@ -187,6 +188,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p0
+%patch4 -p1
 
 %build
 cp -f /usr/share/automake/config.sub support
