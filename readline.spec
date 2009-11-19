@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}.%{patchlevel}
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
@@ -31,6 +31,8 @@ BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
+# libtinfow.so.* must be on /
+Requires:	ncurses >= 5.7-18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
