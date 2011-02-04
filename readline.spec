@@ -120,7 +120,7 @@ liberarla cuando terminar. La línea recuperada tiene el salto de línea
 final quitado, de esta forma solamente el texto de la línea se pone a
 disposición.
 
-%description -l ja.UTF-8
+%description devel -l ja.UTF-8
 "readline"
 ライブラリは端末から一行読むと、プロンプトとともにそれを返し
 ます。返り値となる行は malloc で割り当てられ、終了時にはそのメモリは
