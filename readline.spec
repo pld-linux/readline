@@ -24,7 +24,7 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
-#%%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.2-patches/readline61-%03g 1 %{patchlevel}
+%{?patchlevel:%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.2-patches/readline61-%03g 1 %{patchlevel}}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
