@@ -25,10 +25,10 @@ diff -urN readline-4.2.org/shlib/Makefile.in readline-4.2/shlib/Makefile.in
 -	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_OBJ) $(SHLIB_LIBS)
 +	$(SHOBJ_LD) ${LDFLAGS} ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_OBJ) -lc $(TERMCAP_LIB) $(SHLIB_LIBS)
  
- $(SHARED_HISTORY):	$(SHARED_HISTOBJ) xmalloc.so
+ $(SHARED_HISTORY):	$(SHARED_HISTOBJ) xmalloc.so xfree.so
  	$(RM) $@
--	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so $(SHLIB_LIBS)
-+	$(SHOBJ_LD) ${LDFLAGS} ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so -lc $(SHLIB_LIBS)
+-	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so xfree.so $(SHLIB_LIBS)
++	$(SHOBJ_LD) ${LDFLAGS} ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so xfree.so -lc $(SHLIB_LIBS)
  
- installdirs: $(topdir)/support/mkdirs
- 	-$(SHELL) $(topdir)/support/mkdirs $(libdir)
+ # Since tilde.c is shared between readline and bash, make sure we compile
+ # it with the right flags when it's built as part of readline

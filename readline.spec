@@ -1,5 +1,5 @@
-%define	ver			6.1
-%define	patchlevel	2
+%define	ver		6.2
+#%%define	patchlevel	1
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -17,14 +17,14 @@ Release:	1
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
-# Source0-md5:	fc2f7e714fe792db1ce6ddc4c9fb4ef3
+# Source0-md5:	67948acb2ca081f23359d0256e9a271c
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
-%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.1-patches/readline61-%03g 1 %{patchlevel}
+#%%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.2-patches/readline61-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
