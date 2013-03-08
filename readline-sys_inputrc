@@ -2,3 +2,6 @@ set meta-flag on
 set convert-meta off
 set output-meta on
 set horizontal-scroll-mode off
+
+"\e[B": history-search-forward
+"\e[A": history-search-backward
