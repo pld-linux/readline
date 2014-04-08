@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}%{?patchlevel:.%{patchlevel}}
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
@@ -186,6 +186,8 @@ Bibliotecas estáticas para desenvolvimento com readline.
 
 %prep
 %setup -q -n %{name}-%{ver}
+# official patches
+%{?patchlevel:%patchset_patch 1 %{patchlevel}}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
