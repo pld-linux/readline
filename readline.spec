@@ -24,7 +24,7 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
-%{?patchlevel:%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.3-patches/readline63-%03g 1 %{patchlevel}}
+%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.3-patches/readline63-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -187,7 +187,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %prep
 %setup -q -n %{name}-%{ver}
 # official patches
-%{?patchlevel:%patchset_patch -p2 1 %{patchlevel}}
+%patchset_patch -p2 1 %{patchlevel}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
