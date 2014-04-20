@@ -1,3 +1,4 @@
+# NOTE: when updating patchlevel, do not forget to update 'sources' file!
 %define	ver		6.3
 %define	patchlevel	5
 Summary:	Library for reading lines from a terminal
