@@ -1,6 +1,6 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 %define	ver		6.3
-%define	patchlevel	5
+%define	patchlevel	6
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
