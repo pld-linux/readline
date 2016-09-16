@@ -1,6 +1,6 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
-%define	ver		6.3
-%define	patchlevel	8
+%define	ver		7.0
+%define	patchlevel	0
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -14,18 +14,18 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}%{?patchlevel:.%{patchlevel}}
-Release:	2
+Release:	1
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
-# Source0-md5:	33c8fb279e981274f485fd91da77e94a
+# Source0-md5:	205b03a87fc83dab653b628c59b9fc91
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
-%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-6.3-patches/readline63-%03g 1 %{patchlevel}
+%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -244,9 +244,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
 %attr(755,root,root) /%{_lib}/libhistory.so.*.*
-%attr(755,root,root) %ghost /%{_lib}/libhistory.so.6
+%attr(755,root,root) %ghost /%{_lib}/libhistory.so.7
 %attr(755,root,root) /%{_lib}/libreadline.so.*.*
-%attr(755,root,root) %ghost /%{_lib}/libreadline.so.6
+%attr(755,root,root) %ghost /%{_lib}/libreadline.so.7
 %{_infodir}/history.info*
 %{_infodir}/readline.info*
 %{_infodir}/rluserman.info*
