@@ -1,3 +1,5 @@
+# NOTE: when updating patchlevel, do not forget to update 'sources' file!
+# Format is (one per line): <md5> <patch_filename>
 %define	ver		7.0
 %define	patchlevel	0
 Summary:	Library for reading lines from a terminal
