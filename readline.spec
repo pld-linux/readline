@@ -1,4 +1,3 @@
-# NOTE: when updating patchlevel, do not forget to update 'sources' file!
 %define	ver		7.0
 %define	patchlevel	0
 Summary:	Library for reading lines from a terminal
@@ -195,17 +194,17 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %patch3 -p0
 %patch4 -p1
 
+# force info regeneration
+%{__rm} doc/*.info
+
 %build
 cp -f /usr/share/automake/config.sub support
-mv -f aclocal.m4 acinclude.m4
-%{__aclocal}
+# aclocal.m4 contains only custom macros, so no aclocal call
 %{__autoconf}
 %configure \
 	--with-curses
 
 %{__make} static shared
-
-rm -f doc/*.info
 %{__make} -C doc info
 
 %install
@@ -215,17 +214,21 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},/%{_lib}}
 %{__make} install install-shared \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/inputrc
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/*old
-
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.* $RPM_BUILD_ROOT/%{_lib}
-
+# allow usage without /usr
+%{__mv} $RPM_BUILD_ROOT%{_libdir}/lib*.so.* $RPM_BUILD_ROOT/%{_lib}
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libreadline.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libreadline.so
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libhistory.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libhistory.so
 
 # help rpm to find deps
 chmod +x $RPM_BUILD_ROOT/%{_lib}/lib*.so*
+
+# examples
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/%{name}/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/readline
 
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 
@@ -242,6 +245,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc CHANGELOG CHANGES NEWS README USAGE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
 %attr(755,root,root) /%{_lib}/libhistory.so.*.*
 %attr(755,root,root) %ghost /%{_lib}/libhistory.so.7
@@ -256,6 +260,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libhistory.so
 %attr(755,root,root) %{_libdir}/libreadline.so
 %{_includedir}/readline
+%{_examplesdir}/%{name}-%{version}
 %{_mandir}/man3/history.3*
 %{_mandir}/man3/readline.3*
 
