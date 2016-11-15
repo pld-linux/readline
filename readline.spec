@@ -26,6 +26,7 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
+# Commits: http://git.savannah.gnu.org/cgit/readline.git/
 %patchset_source -f http://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
