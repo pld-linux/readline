@@ -1,7 +1,7 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 # Format is (one per line): <md5> <patch_filename>
-%define	ver		7.0
-%define	patchlevel	5
+%define	ver		8.0
+%define	patchlevel	0
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -19,7 +19,7 @@ Release:	1
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
-# Source0-md5:	205b03a87fc83dab653b628c59b9fc91
+# Source0-md5:	7e6c1f16aee3244a69aba6e438295ca3
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
@@ -27,7 +27,7 @@ Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-tinfo.patch
 # Commits: http://git.savannah.gnu.org/cgit/readline.git/
-%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-%03g 1 %{patchlevel}
+%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-8.0-patches/readline80-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -251,9 +251,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGELOG CHANGES NEWS README USAGE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/inputrc
 %attr(755,root,root) /%{_lib}/libhistory.so.*.*
-%attr(755,root,root) %ghost /%{_lib}/libhistory.so.7
+%attr(755,root,root) %ghost /%{_lib}/libhistory.so.8
 %attr(755,root,root) /%{_lib}/libreadline.so.*.*
-%attr(755,root,root) %ghost /%{_lib}/libreadline.so.7
+%attr(755,root,root) %ghost /%{_lib}/libreadline.so.8
 %{_infodir}/history.info*
 %{_infodir}/readline.info*
 %{_infodir}/rluserman.info*
@@ -262,6 +262,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libhistory.so
 %attr(755,root,root) %{_libdir}/libreadline.so
+%{_pkgconfigdir}/readline.pc
 %{_includedir}/readline
 %{_examplesdir}/%{name}-%{version}
 %{_mandir}/man3/history.3*
