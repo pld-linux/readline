@@ -190,7 +190,7 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %prep
 %setup -q -n %{name}-%{ver}
 # official patches
-%patchset_patch -p2 1 %{patchlevel}
+%patchset_patch -p0 1 %{patchlevel}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
