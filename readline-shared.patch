@@ -1,7 +1,7 @@
-diff -urN readline-4.2.org/shlib/Makefile.in readline-4.2/shlib/Makefile.in
---- readline-4.2.org/shlib/Makefile.in	Wed Apr 11 19:45:39 2001
-+++ readline-4.2/shlib/Makefile.in	Wed Apr 11 19:52:49 2001
-@@ -141,11 +141,11 @@
+diff -urNp -x '*.orig' readline-8.1.org/shlib/Makefile.in readline-8.1/shlib/Makefile.in
+--- readline-8.1.org/shlib/Makefile.in	2020-10-29 20:47:57.000000000 +0100
++++ readline-8.1/shlib/Makefile.in	2021-03-21 12:54:35.957931009 +0100
+@@ -174,11 +174,11 @@ unsupported:
  
  $(SHARED_READLINE):	$(SHARED_OBJ)
  	$(RM) $@
@@ -13,5 +13,5 @@ diff -urN readline-4.2.org/shlib/Makefile.in readline-4.2/shlib/Makefile.in
 -	$(SHOBJ_LD) ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so xfree.so $(SHLIB_LIBS)
 +	$(SHOBJ_LD) ${LDFLAGS} ${SHOBJ_LDFLAGS} ${SHLIB_XLDFLAGS} -o $@ $(SHARED_HISTOBJ) xmalloc.so xfree.so -lc $(SHLIB_LIBS)
  
- # Since tilde.c is shared between readline and bash, make sure we compile
+ # Since tilde.c is shared between readline and bash, make sure we compile 
  # it with the right flags when it's built as part of readline
