@@ -15,7 +15,7 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}%{?patchlevel:.%{patchlevel}}
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
@@ -25,17 +25,16 @@ Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
 Patch3:		%{name}-lfs.patch
-Patch4:		%{name}-tinfo.patch
+Patch4:		%{name}-termcap.patch
 # Commits: http://git.savannah.gnu.org/cgit/readline.git/
 %patchset_source -f http://ftp.gnu.org/gnu/readline/readline-8.1-patches/readline81-%03g 1 %{patchlevel}
 URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	ncurses-devel >= 5.9-3
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-# libtinfow.so.* must be on /
-Requires:	ncurses >= 5.7-18
+Requires:	ncurses >= 5.9-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -101,7 +100,7 @@ Summary(tr.UTF-8):	readline kitaplığını kullanan programlar yazmak için ger
 Summary(uk.UTF-8):	Файли, необхідні для розробки програм, що використовують бібліотеку readline
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	ncurses-devel >= 5.0
+Requires:	ncurses-devel >= 5.9-3
 
 %description devel
 The "readline" library will read a line from the terminal and return
