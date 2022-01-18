@@ -1,7 +1,7 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 # Format is (one per line): <md5> <patch_filename>
 %define	ver		8.1
-%define	patchlevel	1
+%define	patchlevel	2
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -15,10 +15,10 @@ Summary(tr.UTF-8):	Terminalden satır okumak için kullanılan bir kitaplık
 Summary(uk.UTF-8):	Бібліотека для читання стрічок з терміналу
 Name:		readline
 Version:	%{ver}%{?patchlevel:.%{patchlevel}}
-Release:	2
+Release:	1
 License:	GPL v3+
 Group:		Libraries
-Source0:	http://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
+Source0:	https://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
 # Source0-md5:	e9557dd5b1409f5d7b37ef717c64518e
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
@@ -28,7 +28,7 @@ Patch3:		%{name}-lfs.patch
 Patch4:		%{name}-termcap.patch
 # Commits: http://git.savannah.gnu.org/cgit/readline.git/
 %patchset_source -f http://ftp.gnu.org/gnu/readline/readline-8.1-patches/readline81-%03g 1 %{patchlevel}
-URL:		http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
+URL:		https://tiswww.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.9-3
