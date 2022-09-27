@@ -29,7 +29,7 @@ Patch4:		%{name}-termcap.patch
 # Commits: http://git.savannah.gnu.org/cgit/readline.git/
 # %%patchset_source -f http://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline81-%03g 1 %{patchlevel}
 URL:		https://tiswww.cwru.edu/php/chet/readline/rltop.html
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.9-3
 BuildRequires:	texinfo
