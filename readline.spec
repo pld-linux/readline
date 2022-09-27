@@ -200,7 +200,6 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %{__rm} doc/*.info
 
 %build
-cp -f /usr/share/automake/config.sub support
 # aclocal.m4 contains only custom macros, so no aclocal call
 %{__autoconf}
 %configure \
