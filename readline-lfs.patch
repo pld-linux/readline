@@ -1,29 +1,15 @@
 diff -urNp -x '*.orig' readline-8.1.org/config.h.in readline-8.1/config.h.in
 --- readline-8.1.org/config.h.in	2016-11-21 19:02:48.000000000 +0100
 +++ readline-8.1/config.h.in	2021-03-21 12:54:58.441931009 +0100
-@@ -32,6 +32,12 @@
+@@ -32,6 +32,9 @@
  
  #undef volatile
  
-+/* Number of bits in a file offset, on hosts where this is settable. */
-+#undef _FILE_OFFSET_BITS
-+
 +/* Define for large files, on AIX-style hosts. */
 +#undef _LARGE_FILES
 +
  #undef PROTOTYPES
  #undef __PROTOTYPES
- 
-diff -urNp -x '*.orig' readline-8.1.org/configure.ac readline-8.1/configure.ac
---- readline-8.1.org/configure.ac	2020-10-29 20:44:22.000000000 +0100
-+++ readline-8.1/configure.ac	2021-03-21 12:54:58.440931009 +0100
-@@ -140,6 +140,7 @@ AC_TYPE_SIGNAL
- 
- AC_TYPE_SIZE_T
- AC_CHECK_TYPE(ssize_t, int)
-+AC_SYS_LARGEFILE
- 
- AC_HEADER_STDC
  
 diff -urNp -x '*.orig' readline-8.1.org/histfile.c readline-8.1/histfile.c
 --- readline-8.1.org/histfile.c	2020-03-17 17:37:35.000000000 +0100
