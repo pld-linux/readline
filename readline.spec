@@ -1,7 +1,7 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 # Format is (one per line): <md5> <patch_filename>
-%define	ver		8.2
-%define	patchlevel	13
+%define	ver		8.3
+%define	patchlevel	0
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
 Summary(es.UTF-8):	Biblioteca para lectura de líneas de un terminal
@@ -19,13 +19,12 @@ Release:	1
 License:	GPL v3+
 Group:		Libraries
 Source0:	https://ftp.gnu.org/gnu/readline/%{name}-%{ver}.tar.gz
-# Source0-md5:	4aa1b31be779e6b84f9a96cb66bc50f6
+# Source0-md5:	25a73bfb2a3ad7146c5e9d4408d9f6cd
 Source1:	%{name}-sys_inputrc
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-header.patch
-Patch3:		%{name}-lfs.patch
-Patch4:		%{name}-termcap.patch
+Patch3:		%{name}-termcap.patch
 # Commits: http://git.savannah.gnu.org/cgit/readline.git/
 %patchset_source -f http://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-%03g 1 %{patchlevel}
 URL:		https://tiswww.cwru.edu/php/chet/readline/rltop.html
@@ -190,11 +189,10 @@ Bibliotecas estáticas para desenvolvimento com readline.
 %setup -q -n %{name}-%{ver}
 # official patches
 %patchset_patch -p0 1 %{patchlevel}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 # force info regeneration
 %{__rm} doc/*.info
