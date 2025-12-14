@@ -1,7 +1,7 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 # Format is (one per line): <md5> <patch_filename>
 %define	ver		8.3
-%define	patchlevel	1
+%define	patchlevel	3
 %define min_patch_nr    1000
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
