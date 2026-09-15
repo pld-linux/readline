@@ -1,7 +1,7 @@
 # NOTE: when updating patchlevel, do not forget to update 'sources' file!
 # Format is (one per line): <md5> <patch_filename>
 %define	ver		8.3
-%define	patchlevel	3
+%define	patchlevel	6
 %define min_patch_nr    1000
 Summary:	Library for reading lines from a terminal
 Summary(de.UTF-8):	Library zum Lesen von Zeilen von einem Terminal
@@ -30,7 +30,6 @@ Patch3:		%{name}-termcap.patch
 %patchset_source -f https://ftp.gnu.org/gnu/readline/readline-8.3-patches/readline83-%03g -b %{min_patch_nr} 1 %{patchlevel}
 URL:		https://tiswww.cwru.edu/php/chet/readline/rltop.html
 BuildRequires:	autoconf >= 2.69
-BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.9-3
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
