@@ -33,7 +33,7 @@ BuildRequires:	autoconf >= 2.69
 BuildRequires:	ncurses-devel >= 5.9-3
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	ncurses >= 5.9-3
+Requires:	ncurses%{?_isa} >= 5.9-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -98,8 +98,8 @@ Summary(ru.UTF-8):	Файлы, необходимые для разработк�
 Summary(tr.UTF-8):	readline kitaplığını kullanan programlar yazmak için gerekli dosyalar
 Summary(uk.UTF-8):	Файли, необхідні для розробки програм, що використовують бібліотеку readline
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	ncurses-devel >= 5.9-3
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	ncurses-devel%{?_isa} >= 5.9-3
 
 %description devel
 The "readline" library will read a line from the terminal and return
@@ -165,7 +165,7 @@ Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com a readline
 Summary(ru.UTF-8):	Статические библиотеки readline
 Summary(uk.UTF-8):	Статичні бібліотеки readline
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 This package contains static version of readline library.
